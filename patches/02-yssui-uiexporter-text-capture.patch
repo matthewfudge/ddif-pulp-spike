@@ -1,0 +1,60 @@
+From 5f8e53bd244734b6646dec64baa88a907014bdd8 Mon Sep 17 00:00:00 2001
+From: matthewfudge <43009012+matthewfudge@users.noreply.github.com>
+Date: Sun, 7 Jun 2026 12:32:01 -0400
+Subject: [PATCH] feat(yssUI): UIExporter captures Label/Button/TextEditor text
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Adds NodeInfo::text field, populated via dynamic_cast on three JUCE
+classes that carry display text. Emitted as "text": "..." in
+ComponentTree.json so downstream codegen (Pulp JSX converter, etc.)
+can show real labels instead of placeholders.
+
+dynamic_cast requires RTTI which is fine here — UIExporter is debug-only
+tooling and never built into the release product.
+
+For the DDIF → Pulp Path A pipeline at
+Docs/PulpIntegration.md in the dreamdate framework repo.
+
+Co-Authored-By: Claude Opus 4.7 <noreply@anthropic.com>
+---
+ Modules/yssUI/Shared/Utilities/UIExporter.h | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/Modules/yssUI/Shared/Utilities/UIExporter.h b/Modules/yssUI/Shared/Utilities/UIExporter.h
+index 78435283..127efeb0 100644
+--- a/Modules/yssUI/Shared/Utilities/UIExporter.h
++++ b/Modules/yssUI/Shared/Utilities/UIExporter.h
+@@ -161,6 +161,7 @@ public:
+         juce::String className;
+         juce::String name;
+         juce::String componentId;
++        juce::String text;          // Label::getText / Button::getButtonText / TextEditor::getText
+         juce::Rectangle<int> localBounds;
+         juce::Rectangle<int> globalBounds;
+         bool visible = true;
+@@ -185,6 +186,12 @@ public:
+         info.className = demangle(typeid(comp).name());
+         info.name = comp.getName();
+         info.componentId = comp.getComponentID();
++        // Capture displayed text for the three components that carry one.
++        // dynamic_cast requires RTTI — fine here, UIExporter is debug-only
++        // tooling never built into the release product.
++        if (auto* lbl = dynamic_cast<juce::Label*>(&comp))            info.text = lbl->getText();
++        else if (auto* btn = dynamic_cast<juce::Button*>(&comp))      info.text = btn->getButtonText();
++        else if (auto* ed  = dynamic_cast<juce::TextEditor*>(&comp))  info.text = ed->getText();
+         info.localBounds = comp.getBoundsInParent();
+         info.globalBounds = juce::Rectangle<int>(parentGlobalX + info.localBounds.getX(),
+                                                   parentGlobalY + info.localBounds.getY(),
+@@ -247,6 +254,7 @@ public:
+             out << " \"class\": \""     << escapeJson(n.className) << "\",";
+             out << " \"name\": \""      << escapeJson(n.name) << "\",";
+             out << " \"componentId\": \"" << escapeJson(n.componentId) << "\",";
++            out << " \"text\": \""      << escapeJson(n.text) << "\",";
+             out << " \"visible\": "     << (n.visible ? "true" : "false") << ",";
+             out << " \"bounds\": ["     << n.localBounds.getX() << ","
+                                          << n.localBounds.getY() << ","
+-- 
+2.51.0
+

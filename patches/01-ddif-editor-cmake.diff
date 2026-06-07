@@ -1,0 +1,213 @@
+diff --git a/App/Editor/EditorResized.cpp b/App/Editor/EditorResized.cpp
+index fad7d4c..689e121 100644
+--- a/App/Editor/EditorResized.cpp
++++ b/App/Editor/EditorResized.cpp
+@@ -257,6 +257,13 @@ void InstrumentEditor::resized()
+         trialOverlay_->toFront(false);
+     }
+ 
++   #if YSS_HAS_PULP_UI
++    if (pulpEmbed_)
++    {
++        pulpEmbed_->setBounds(0, 0, windowWidth, windowHeight);
++        pulpEmbed_->toFront(false);
++    }
++   #endif
+ }
+ 
+ // NOTE: Layout helpers (layoutVoiceColumns, layoutModeSelector, layoutArpPanel,
+diff --git a/App/Editor/PluginEditor.cpp b/App/Editor/PluginEditor.cpp
+index d33a9ee..f59af55 100644
+--- a/App/Editor/PluginEditor.cpp
++++ b/App/Editor/PluginEditor.cpp
+@@ -587,37 +587,106 @@ InstrumentEditor::InstrumentEditor(InstrumentProcessor& p)
+     startTimerHz(animationFps);
+     logTime("EDITOR TOTAL");
+ 
+-    // Screenshot mode — capture the editor to PNG and quit
+-    if (processorRef_.isScreenshotMode())
++    // Headless export modes — capture the live editor to disk and quit.
++    // Two flags, either or both may be set on the Standalone command line:
++    //   --screenshot <path> [--scale <f>]   PNG snapshot, existing path.
++    //   --ui-export <dir>                    yss::UIExporter dump — SVG + PNG +
++    //                                        ComponentTree.json + index.html,
++    //                                        intended for downstream codegen
++    //                                        pipelines (Pulp's JUCE → JSX/Canvas2D
++    //                                        conversion — see Docs/PulpIntegration.md).
++    juce::String uiExportDir, pulpCapturePath;
++    {
++        auto args = juce::JUCEApplicationBase::getCommandLineParameterArray();
++        for (int i = 0; i + 1 < args.size(); ++i)
++        {
++            if (args[i] == "--ui-export")     uiExportDir     = args[i + 1];
++            if (args[i] == "--pulp-capture")  pulpCapturePath = args[i + 1];
++        }
++    }
++    if (processorRef_.isScreenshotMode() || uiExportDir.isNotEmpty() || pulpCapturePath.isNotEmpty())
+     {
+         // Defer to let the window paint at least once
+-        juce::Timer::callAfterDelay(1000, [this]() {
+-            auto outputFile = juce::File(processorRef_.getScreenshotOutputPath());
+-            float scale = processorRef_.getScreenshotScale();
++        juce::Timer::callAfterDelay(1000, [this, uiExportDir, pulpCapturePath]() {
++            if (processorRef_.isScreenshotMode())
++            {
++                auto outputFile = juce::File(processorRef_.getScreenshotOutputPath());
++                float scale = processorRef_.getScreenshotScale();
++                auto image = createComponentSnapshot(getLocalBounds(), true, scale);
+ 
+-            // Capture just the editor content (skip standalone header)
+-            // The editor's own bounds are the plugin UI without the JUCE standalone toolbar
+-            auto image = createComponentSnapshot(getLocalBounds(), true, scale);
++                outputFile.getParentDirectory().createDirectory();
++                juce::FileOutputStream stream(outputFile);
++                if (stream.openedOk())
++                {
++                    juce::PNGImageFormat png;
++                    png.writeImageToStream(image, stream);
++                    std::cout << "Screenshot saved: " << outputFile.getFullPathName()
++                              << " (" << image.getWidth() << "x" << image.getHeight() << ")"
++                              << std::endl;
++                }
++                else
++                {
++                    std::cerr << "Failed to write screenshot: " << outputFile.getFullPathName()
++                              << std::endl;
++                }
++            }
+ 
+-            outputFile.getParentDirectory().createDirectory();
+-            juce::FileOutputStream stream(outputFile);
+-            if (stream.openedOk())
++            if (uiExportDir.isNotEmpty())
+             {
+-                juce::PNGImageFormat png;
+-                png.writeImageToStream(image, stream);
+-                std::cout << "Screenshot saved: " << outputFile.getFullPathName()
+-                          << " (" << image.getWidth() << "x" << image.getHeight() << ")"
+-                          << std::endl;
++                auto outDir = juce::File(uiExportDir);
++                outDir.createDirectory();
++                auto result = yss::UIExporter::exportComponent(*this, outDir);
++                std::cout << "UI export -> " << outDir.getFullPathName() << "  ("
++                          << (result.success ? "ok" : "FAILED") << ", "
++                          << result.componentCount << " components)" << std::endl;
+             }
+-            else
++
++           #if YSS_HAS_PULP_UI
++            if (pulpCapturePath.isNotEmpty())
+             {
+-                std::cerr << "Failed to write screenshot: " << outputFile.getFullPathName()
+-                          << std::endl;
++                // Pulp overlay lives in a native NSView — JUCE's paint tree
++                // can't see it. Use PulpEmbedComponent::writeCapturePng to
++                // grab the live Metal back-buffer instead.
++                if (pulpEmbed_ && pulpEmbed_->isValid())
++                {
++                    auto out = juce::File(pulpCapturePath);
++                    out.getParentDirectory().createDirectory();
++                    bool ok = pulpEmbed_->writeCapturePng(out);
++                    std::cout << "Pulp capture -> " << out.getFullPathName()
++                              << "  (" << (ok ? "ok" : "FAILED") << ")" << std::endl;
++                }
++                else
++                {
++                    std::cerr << "Pulp capture: no overlay mounted "
++                                 "(pass --pulp-bundle <dir>)" << std::endl;
++                }
+             }
++           #endif
+ 
+             juce::JUCEApplicationBase::quit();
+         });
+     }
++
++   #if YSS_HAS_PULP_UI
++    // Mount the Pulp UI overlay when --pulp-bundle <dir> is passed to the
++    // Standalone. Lets us iterate the generated bundle without rebuilding the
++    // plugin. Empty / absent path = no overlay (the regular DDIF UI shows).
++    juce::String pulpBundleDir;
++    {
++        auto args = juce::JUCEApplicationBase::getCommandLineParameterArray();
++        for (int i = 0; i + 1 < args.size(); ++i)
++            if (args[i] == "--pulp-bundle") { pulpBundleDir = args[i + 1]; break; }
++    }
++    if (pulpBundleDir.isNotEmpty())
++    {
++        pulpEmbed_ = std::make_unique<pulp_juce::PulpEmbedComponent>(
++            juce::File(pulpBundleDir), windowWidth, windowHeight);
++        if (! pulpEmbed_->isValid())
++            DBG("PulpEmbedComponent failed: " << pulpEmbed_->lastError());
++        addAndMakeVisible(*pulpEmbed_);
++        pulpEmbed_->toFront(false);
++    }
++   #endif
+ }
+ 
+ InstrumentEditor::~InstrumentEditor()
+diff --git a/App/Editor/PluginEditor.h b/App/Editor/PluginEditor.h
+index 2675450..58e265c 100644
+--- a/App/Editor/PluginEditor.h
++++ b/App/Editor/PluginEditor.h
+@@ -4,6 +4,9 @@
+ #include <map>
+ #include <juce_audio_processors/juce_audio_processors.h>
+ #include <yssUI/yssUI.h>
++#if YSS_HAS_PULP_UI
++ #include <PulpEmbedComponent.h>
++#endif
+ #include "Processor/PluginProcessor.h"
+ #include "InstrumentConfig.h"
+ #include "InstrumentUndoRedoHandler.h"
+@@ -197,5 +200,12 @@ private:
+     juce::Rectangle<int> infoButtonBounds_;  juce::String hoveredParamName_;
+     std::unique_ptr<InfoButton> infoButton_;
+ 
++   #if YSS_HAS_PULP_UI
++    // Visual-only Pulp embed spike. Loads the demo bundle (Elysium) on top of
++    // the regular editor when the build is configured with -DDDD_USE_PULP_UI=ON.
++    // No parameter wiring yet — that gap is tracked in Docs/PulpIntegration.md.
++    std::unique_ptr<pulp_juce::PulpEmbedComponent> pulpEmbed_;
++   #endif
++
+     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(InstrumentEditor)
+ };
+diff --git a/Projects/DreamDateFX/CMakeLists.txt b/Projects/DreamDateFX/CMakeLists.txt
+index 3784149..deedf4e 100644
+--- a/Projects/DreamDateFX/CMakeLists.txt
++++ b/Projects/DreamDateFX/CMakeLists.txt
+@@ -3,7 +3,14 @@
+ 
+ cmake_minimum_required(VERSION 3.22)
+ 
+-set(CMAKE_OSX_DEPLOYMENT_TARGET "10.13" CACHE STRING "Minimum macOS version" FORCE)
++# Pulp's headers use std::filesystem::path which is unavailable below macOS 10.15.
++# When -DDDD_USE_PULP_UI=ON we bump the minimum so the Pulp headers compile.
++# Standard builds stay at 10.13 to keep the ship target unchanged.
++if(DDD_USE_PULP_UI)
++    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15" CACHE STRING "Minimum macOS version (raised for Pulp std::filesystem)" FORCE)
++else()
++    set(CMAKE_OSX_DEPLOYMENT_TARGET "10.13" CACHE STRING "Minimum macOS version" FORCE)
++endif()
+ 
+ project(DreamDateFX VERSION 0.1.11)
+ 
+@@ -140,6 +147,17 @@ if(NOT CMAKE_BUILD_TYPE STREQUAL "Release")
+     )
+ endif()
+ 
++# =============================================================================
++# Pulp UI integration — opt-in via -DDDD_USE_PULP_UI=ON. See Docs/PulpIntegration.md
++# for the experiment notes. The helper currently lives in DDIF/CMake/ and will
++# graduate to <YSS>/CMake/ once the approach is validated.
++# =============================================================================
++option(DDD_USE_PULP_UI "Embed the editor UI via pulp-embed-juce (experimental, macOS only)" OFF)
++if(DDD_USE_PULP_UI)
++    include("${REPO_ROOT}/CMake/yssPulp.cmake")
++    yss_link_pulp(DreamDateFX)
++endif()
++
+ # Embed factory presets from Resources/Presets/<tag>/<name>.dddp into the
+ # plugin binary. They surface in the preset browser alongside user presets,
+ # tagged by their parent folder name. Loader path is YsspReader::readFromMemory.

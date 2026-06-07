@@ -1,0 +1,57 @@
+From bda6539525cdf6a45fa8f46fdebe66bd384e30a2 Mon Sep 17 00:00:00 2001
+From: matthewfudge <43009012+matthewfudge@users.noreply.github.com>
+Date: Sun, 7 Jun 2026 10:57:17 -0400
+Subject: [PATCH] build: skip JUCE FetchContent when parent already added JUCE
+
+A host plugin that does add_subdirectory(<its-own-JUCE>) before
+add_subdirectory(pulp-embed-juce) currently fails to configure with a
+flurry of duplicate-target errors (juce_osc, juce_product_unlocking,
+juce_video, juce_build_tools, juceaide). FetchContent_MakeAvailable
+re-adds the JUCE module subdirectory even when JUCE is already present
+because the populated source tree it pulls is a sibling, not the parent's.
+
+Guard the fetch on the absence of a stable JUCE target name. When the
+parent has already added JUCE, log it and reuse the parent's targets.
+
+Discovered while wiring pulp-embed-juce into a JUCE plugin that uses its
+own pinned JUCE checkout (via -DJUCE_PATH).
+---
+ CMakeLists.txt | 22 ++++++++++++++++------
+ 1 file changed, 16 insertions(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index bdd1fcb..a52e512 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -23,12 +23,22 @@ endif()
+ add_subdirectory("${PULP_VIEW_EMBED_DIR}" pulp-view-embed-build)
+ 
+ # ── JUCE ─────────────────────────────────────────────────────────────────
+-include(FetchContent)
+-FetchContent_Declare(JUCE
+-    GIT_REPOSITORY https://github.com/juce-framework/JUCE.git
+-    GIT_TAG 8.0.4
+-    GIT_SHALLOW TRUE)
+-FetchContent_MakeAvailable(JUCE)
++# Skip the fetch when the parent project has already added JUCE (e.g. a host
++# plugin add_subdirectory()s its own JUCE checkout, then add_subdirectory()s
++# this adapter). FetchContent_MakeAvailable is NOT idempotent across an
++# already-populated JUCE source tree — re-adding it triggers duplicate target
++# errors (juce_osc, juce_product_unlocking, juce_video, juce_build_tools,
++# juceaide, …). Probe for a stable JUCE target name to detect that case.
++if(NOT TARGET juce::juce_core)
++    include(FetchContent)
++    FetchContent_Declare(JUCE
++        GIT_REPOSITORY https://github.com/juce-framework/JUCE.git
++        GIT_TAG 8.0.4
++        GIT_SHALLOW TRUE)
++    FetchContent_MakeAvailable(JUCE)
++else()
++    message(STATUS "pulp-embed-juce: parent project already added JUCE — skipping FetchContent")
++endif()
+ 
+ # ── the adapter library ──────────────────────────────────────────────────
+ add_library(pulp_embed_juce STATIC src/PulpEmbedComponent.cpp)
+-- 
+2.51.0
+
