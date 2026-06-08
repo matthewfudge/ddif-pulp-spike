@@ -278,7 +278,11 @@ function emit(node, indent, isRoot = false) {
     const text = escapeAttr(node.text);
 
     if (c.kind === 'Knob' || c.kind === 'Fader' || c.kind === 'Meter') {
-        const props = [`id="${id}"`, `value={0.5}`, style];
+        // Uncontrolled — no `value` prop. Pulp's widget owns drag state
+        // internally, so the knob moves freely on mouse drag. When q1 binding
+        // matches (id == APVTS ParameterID), DAW automation pushes values
+        // back through pulp_embed_param_changed instead.
+        const props = [`id="${id}"`, style];
         if (c.kind === 'Fader') props.push(`orientation="${c.orientation ?? 'horizontal'}"`);
         return `${pad}<${c.kind} ${props.join(' ')} />\n`;
     }
