@@ -65,6 +65,14 @@ These default to `/Volumes/Areas/Development/SDK/Pulp/install` and `/Volumes/Are
 
 If 6/7/8 are all the same underlying bridge bug (silent-fail past some condition), that's the singular thing blocking pixel parity. Without solving it we're stuck at "macros + LFO frame + cream panel, no module slot frames, no MASTER strip, no 'No Preset' text" — the cliff falls right between the visually-important paths.
 
+### New (2026-06-08): widget skinning / custom paint
+
+9. **`@pulp/react` widget intrinsics don't expose custom paint or skin props.** `<Knob>` only takes `value`/`onChange`, `<Button>` only takes `onClick`/`disabled`. So when we layer Pulp widgets on top of SVG chrome to get drag/press feedback, the user sees the default Pulp style (cream circle + tick mark for Knob, dark rectangle for Button) covering DDIF's custom-painted look (purple-triangle indicator, custom button skins). Two questions:
+   - Could `<SvgPath>`/`<SvgRect>` children of a `<Knob>` opt-in to becoming the knob's paint? That way DDIF can ship the captured-from-JUCE paint commands as the knob's appearance, parameterized by the widget's `value`.
+   - Or a per-intrinsic prop API (`indicatorPath`, `trackFill`, `pressedFill`, etc.) on each widget.
+   
+   Today the choice is binary: visible widget feedback (Pulp default look) OR DDIF style everywhere (invisible widget feedback). Custom paint solves both.
+
 ### Already-flagged
 
 1. **Is there a planned way to expose the param bridge through `PulpEmbedComponent`?** The C ABI in `pulp_view_embed.h` (ABI v2/v3) has full bidirectional param callbacks (`set_param`/`get_param`/`begin_gesture`/`end_gesture`, plus `param_count`/`param_key`/`param_widget_id` enumeration). But `PulpEmbedComponent` zero-inits `PulpEmbedDesc` and never passes a `host` block, and there's no method on it to bind a `juce::AudioProcessor`. For DDIF that's a deal-breaker — we have hundreds of APVTS params that need to round-trip with the UI. Are you planning to add a `bindHost(juce::AudioProcessor&)` or a `PulpEmbedHostCallbacks` ctor overload?
