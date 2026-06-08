@@ -65,6 +65,50 @@ These default to `/Volumes/Areas/Development/SDK/Pulp/install` and `/Volumes/Are
 
 If 6/7/8 are all the same underlying bridge bug (silent-fail past some condition), that's the singular thing blocking pixel parity. Without solving it we're stuck at "macros + LFO frame + cream panel, no module slot frames, no MASTER strip, no 'No Preset' text" — the cliff falls right between the visually-important paths.
 
+### New (2026-06-08): standalone JSX bundles — Knob doesn't receive drag
+
+**Issue:** Knobs in a fixture-loaded bundle don't respond to mouse drag, but Knobs in DDIF's generated bundle (same converter, same pipeline) historically did. After the big sync wave on 2026-06-08 (pulp main +28 commits, pulp-view-embed +1, pulp-embed-juce +1), even DDIF's bundle may now be affected — we tested fixtures and saw zero drag response on bundles that previously worked.
+
+**Minimal repro fixture** (in `ddif-pulp-spike/diagnostics/`):
+```jsx
+// minimal-knob.jsx — identical to how DDIF's converter emits each Knob
+import { View, Knob } from '@pulp/react';
+export default function App() {
+  return (
+    <View style={{position:'absolute', left:0, top:0, width:1000, height:536}}>
+      <Knob id="solo" style={{position:'absolute', left:400, top:150, width:200, height:200}} />
+    </View>
+  );
+}
+```
+
+Pipeline:
+```bash
+node /pulp/tools/import-design/jsx-runtime/jsx-transform.mjs --in minimal-knob.jsx --out bundle.js
+pulp-cpp import-design --from jsx --file bundle.js --mode live --emit js --output bundle-dir/ui.js
+```
+
+Mount in `pulp-embed-juce`'s example plugin (or any host) via `pulp_embed_create_from_ui_bundle("bundle-dir")` — the Knob renders (default cream ring + tick) but doesn't respond to mouse drag.
+
+**pulp-screenshot runtime trace** (static — doesn't simulate drag) shows the JSX-side wiring is in place:
+```
+"callback_count": 3,
+"callbacks": [{"key": "dbg1:change", "id": "dbg1", "type": "change"}, ...],
+"native_registered_count": 0,
+"native_registered": []
+```
+
+3 `change` callbacks registered on the JSX side. `native_registered` is empty (knob change events are wired in C++ via `wire_callbacks` in `createKnob`, not via prop-applier).
+
+**Variants we tried, none animate:**
+1. `<Knob id="solo" style={...} />` — minimal, no React state, identical to DDIF emit.
+2. `<Knob id="solo" onChange={setV} style={...} />` — onChange only, React owns mirror state.
+3. `<Knob id="solo" value={v} onChange={setV} style={...} />` — controlled component.
+
+**Hypothesis:** something in the post-2026-06-08 pulp main / WidgetBridge refactor (#3587 split the accessibility registrar slice) changed how knob drag events flow. The host-bridge integration via `pulp_view_embed` ABI v5 / `designParams()` / `readDesignParams()` may also play a role — maybe drag is now gated on a bound host param, not just emitted unconditionally.
+
+Either way, the spike has been stuck here since the sync. Fixture bundle is `/tmp/min-knob-bundle/` on Matt's machine, mirrored to the spike repo under `diagnostics/`.
+
 ### New (2026-06-08): widget skinning / custom paint
 
 9. **`@pulp/react` widget intrinsics don't expose custom paint or skin props.** `<Knob>` only takes `value`/`onChange`, `<Button>` only takes `onClick`/`disabled`. So when we layer Pulp widgets on top of SVG chrome to get drag/press feedback, the user sees the default Pulp style (cream circle + tick mark for Knob, dark rectangle for Button) covering DDIF's custom-painted look (purple-triangle indicator, custom button skins). Two questions:
