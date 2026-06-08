@@ -292,9 +292,14 @@ function emit(node, indent, isRoot = false) {
             : `${pad}<Label id="${id}" ${style} />\n`;
     }
     if (c.kind === 'Button' || c.kind === 'Toggle') {
+        // Pulp #1006 — `registerClick(id)` only wires through when JS subscribes
+        // to a click event. Without `onClick`, native NSEvent reaches View::on_mouse_down
+        // but never dispatches the press → no visual press feedback. A noop
+        // handler is enough to enable the press registration.
+        const handler = `onClick={() => {}}`;
         return text
-            ? `${pad}<${c.kind} id="${id}" ${style}>${text}</${c.kind}>\n`
-            : `${pad}<${c.kind} id="${id}" ${style} />\n`;
+            ? `${pad}<${c.kind} id="${id}" ${handler} ${style}>${text}</${c.kind}>\n`
+            : `${pad}<${c.kind} id="${id}" ${handler} ${style} />\n`;
     }
     if (c.kind === 'TextEditor') {
         return text
@@ -348,12 +353,26 @@ function emitSvg(p) {
 // number of bucket Views plus the widget tree.
 const CHROME_BUCKET_SIZE = 100;
 
+// Z-order: SVG chrome first (bottom, pointerEvents:'none'), then widgets on top.
+// SVG renders the DDIF look-and-feel for static decoration (cream panel,
+// LFO frame, module slots, "No Preset", MASTER strip, etc.) while interactive
+// widgets sit ABOVE with their default Pulp visuals. The trade-off:
+//
+//   widgets on top  → visible drag/press feedback (cream Pulp Knob rotates,
+//                     dark Pulp Button shows press state), but Pulp's default
+//                     widget style is visible over the SVG's custom art
+//   chrome on top   → DDIF style everywhere, but invisible widget feedback
+//
+// Until Pulp's intrinsics expose per-widget skinning (e.g. custom <SvgPath>
+// children that re-paint per knob value), we can't have both. Choosing
+// "visible feedback" because the user was already adapted to seeing the
+// Pulp-default knob rotation when dragging.
 out += `export default function DDIF() {\n`;
 out += `  return (\n`;
 out += `    <View id="root" style={{position:'absolute', left:0, top:0, width:${TARGET_W}, height:${TARGET_H}}}>\n`;
 for (let i = 0; i < svgPrims.length; i += CHROME_BUCKET_SIZE) {
     const slice = svgPrims.slice(i, i + CHROME_BUCKET_SIZE);
-    out += `      <View id="chrome${i / CHROME_BUCKET_SIZE}" style={{position:'absolute', left:0, top:0, width:1430, height:766}}>\n`;
+    out += `      <View id="chrome${i / CHROME_BUCKET_SIZE}" style={{position:'absolute', left:0, top:0, width:${TARGET_W}, height:${TARGET_H}, pointerEvents:'none'}}>\n`;
     for (const p of slice) out += emitSvg(p);
     out += `      </View>\n`;
 }
