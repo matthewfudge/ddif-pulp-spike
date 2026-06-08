@@ -17,10 +17,10 @@ index fad7d4c..689e121 100644
  
  // NOTE: Layout helpers (layoutVoiceColumns, layoutModeSelector, layoutArpPanel,
 diff --git a/App/Editor/PluginEditor.cpp b/App/Editor/PluginEditor.cpp
-index d33a9ee..f59af55 100644
+index d33a9ee..36db4c9 100644
 --- a/App/Editor/PluginEditor.cpp
 +++ b/App/Editor/PluginEditor.cpp
-@@ -587,37 +587,106 @@ InstrumentEditor::InstrumentEditor(InstrumentProcessor& p)
+@@ -587,37 +587,113 @@ InstrumentEditor::InstrumentEditor(InstrumentProcessor& p)
      startTimerHz(animationFps);
      logTime("EDITOR TOTAL");
  
@@ -135,10 +135,17 @@ index d33a9ee..f59af55 100644
 +    }
 +    if (pulpBundleDir.isNotEmpty())
 +    {
++        // q1 fix landed upstream 2026-06-08 — use the (file, w, h, processor)
++        // ctor so design controls bind to APVTS by string key. Knobs become
++        // interactive. boundParameterCount() == 0 here would mean none of the
++        // design's control ids match DDIF's APVTS parameter ids — purely a
++        // naming mismatch in the imported design, not a bug.
 +        pulpEmbed_ = std::make_unique<pulp_juce::PulpEmbedComponent>(
-+            juce::File(pulpBundleDir), windowWidth, windowHeight);
++            juce::File(pulpBundleDir), windowWidth, windowHeight, processorRef_);
 +        if (! pulpEmbed_->isValid())
 +            DBG("PulpEmbedComponent failed: " << pulpEmbed_->lastError());
++        DBG("Pulp embed bound " << pulpEmbed_->boundParameterCount()
++            << " design controls to APVTS parameters");
 +        addAndMakeVisible(*pulpEmbed_);
 +        pulpEmbed_->toFront(false);
 +    }

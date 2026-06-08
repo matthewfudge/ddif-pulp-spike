@@ -1,4 +1,4 @@
-From bda6539525cdf6a45fa8f46fdebe66bd384e30a2 Mon Sep 17 00:00:00 2001
+From affdfcbcda86785c7293f24ffdfe9854657f1f26 Mon Sep 17 00:00:00 2001
 From: matthewfudge <43009012+matthewfudge@users.noreply.github.com>
 Date: Sun, 7 Jun 2026 10:57:17 -0400
 Subject: [PATCH] build: skip JUCE FetchContent when parent already added JUCE

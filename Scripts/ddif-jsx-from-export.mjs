@@ -36,16 +36,35 @@ const IN_DIR  = arg('--in',  '/tmp/ddif-ui-export');
 const OUT_PATH = arg('--out', '/tmp/ddif-jsx/ddif-fx.jsx');
 
 // ── Class → widget mapping ─────────────────────────────────────────────
-// For visual-only pixel parity, every component becomes a transparent <View>.
-// The SVG chrome layer carries the actual pixels (extracted from JUCE's paint
-// output via SVGGraphicsContext). Pulp's default <Knob>/<Button>/<Label>
-// appearances differ from DDIF's look-and-feel custom painting, so rendering
-// them on top of the SVG produces double-knob artifacts.
+// With the q1 host-param-bridge ctor (pulp-embed-juce 1704f10, 2026-06-08),
+// emitting real widgets makes the embed mouse-interactive AND lets Pulp bind
+// to JUCE APVTS parameters when widget ids match. The id mapping is
+// PulpEmbedComponent's contract: `widget id == APVTS ParameterID`.
 //
-// When we wire up real interactivity (Daniel-blocked: pulp-embed-juce host
-// param bridge), classification reactivates per-class so each control becomes
-// the right Pulp widget bound to its param. Until then: View-only.
+// The SVG chrome layer (extracted from JUCE's paint via SVGGraphicsContext)
+// stays underneath for visual fidelity of the custom-painted look. Pulp's
+// default <Knob> appearance differs from DDIF's LookAndFeel, so widgets +
+// SVG overlap means slight double-render — acceptable for the interactivity
+// gain. WIDGETS_TRANSPARENT_OVERLAY=true keeps widgets invisible but still
+// clickable so the SVG carries the visuals and widgets only catch input.
+const WIDGETS_TRANSPARENT_OVERLAY = true;
+
 function classify(cls) {
+    // Knobs / rotary sliders — value-bearing controls.
+    if (/(::|^)Knob\b/.test(cls))     return { kind: 'Knob' };
+    if (cls === 'yss::SaturnRingKnob') return { kind: 'Knob' };
+    if (cls === 'juce::Slider')        return { kind: 'Knob' };  // most DDIF sliders are rotary
+    if (cls === 'instrument::LFODepthSliders::RangeSlider') return { kind: 'Fader', orientation: 'horizontal' };
+    if (cls === 'yss::LevelMeterFader') return { kind: 'Meter' };
+
+    // Buttons (mostly icon-only in DDIF; still emit so clicks register).
+    if (cls === 'juce::TextButton')                     return { kind: 'Button' };
+    if (cls === 'juce::HyperlinkButton')                return { kind: 'Button' };
+    if (/Button$/.test(cls))                            return { kind: 'Button' };
+    if (cls === 'yss::VectorIconButton')                return { kind: 'Button' };
+    if (cls === 'yss::ToggleTextButton')                return { kind: 'Toggle' };
+
+    // Containers — emit as plain <View> so children inherit absolute positioning.
     return { kind: 'View' };
 }
 
@@ -145,7 +164,7 @@ function isVisible(p) {
 //
 // HARD_PRIMS is a final safety net after merging — set high enough that
 // well-merged input shouldn't hit it.
-const HARD_PRIMS = 151;
+const HARD_PRIMS = 1000;
 
 function mergeByStyle(prims) {
     // Group consecutive primitives sharing fill/stroke/strokeWidth into one
@@ -236,7 +255,14 @@ function emit(node, indent, isRoot = false) {
     else { x = Math.round(x * SX); y = Math.round(y * SY); w = Math.round(w * SX); h = Math.round(h * SY); }
     if (w <= 0 || h <= 0) return '';   // collapsed/zero-size, no point emitting
 
-    const style = `style={{position:'absolute', left:${x}, top:${y}, width:${w}, height:${h}}}`;
+    // For interactive widgets, opacity:0 keeps the SVG chrome visible underneath
+    // while the widget itself stays click-capturing. For container Views, no
+    // opacity override (transparent View doesn't paint anything by default).
+    const styleProps = [`position:'absolute'`, `left:${x}`, `top:${y}`,
+                        `width:${w}`, `height:${h}`];
+    const isInteractive = c.kind !== 'View';
+    if (isInteractive && WIDGETS_TRANSPARENT_OVERLAY) styleProps.push(`opacity:0`);
+    const style = `style={{${styleProps.join(', ')}}}`;
     const id = `n${node.index}`;
     const titleAttr = node.class.replace(/"/g, '\\"');
 
