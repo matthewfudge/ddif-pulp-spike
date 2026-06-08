@@ -65,6 +65,35 @@ These default to `/Volumes/Areas/Development/SDK/Pulp/install` and `/Volumes/Are
 
 If 6/7/8 are all the same underlying bridge bug (silent-fail past some condition), that's the singular thing blocking pixel parity. Without solving it we're stuck at "macros + LFO frame + cream panel, no module slot frames, no MASTER strip, no 'No Preset' text" — the cliff falls right between the visually-important paths.
 
+### New (2026-06-08, evening): v0.378.0 fix introduces NULL deref on knob drag
+
+Daniel landed PR [#3617](https://github.com/danielraffel/pulp/pull/3617) in `v0.378.0` to fix the lowercase-tag routing gap (see previous section — `<knob>` now routes to `createKnob` on `__domAppend` + `_ensureNative` + `host-config` lowercase default). The native `Knob` IS now being created — DDIF's render shows the cream rotary visual with tick indicator inside each knob body, where v0.377 and earlier showed an empty `<View>` container.
+
+But the first mouse drag **hard-crashes the process** with a NULL pointer deref:
+
+```
+Exception Type:    EXC_BAD_ACCESS (SIGSEGV)
+Exception Subtype: KERN_INVALID_ADDRESS at 0x0000000000000038
+
+Thread 0 Crashed: JUCE v8.0.12: Message Thread
+0   Dream Date FX   pulp::state::StateStore::set_normalized(unsigned int, float) + 4
+1   Dream Date FX   0x100154000 + 184880
+2   Dream Date FX   pulp::view::Knob::on_mouse_drag(pulp::view::Point) + 108
+3   Dream Date FX   0x100154000 + 2179680
+...
+5   AppKit          -[NSWindow _handleMouseDraggedEvent:]
+```
+
+`set_normalized + 4` + a fault at address `0x38` = reading a member at offset 0x38 of a NULL `this`. So `Knob::on_mouse_drag` is calling `set_normalized` on a `StateStore*` that hasn't been bound. Plausible: the **`__domAppend` path that v0.378.0 newly routes to `createKnob` doesn't install a state store for the no-host-param case** (DDIF's standalone-bundle scenario, exactly what the PR's behavioral test was supposed to cover). Either:
+- `createKnob` via the new route should default to a per-knob in-memory `StateStore` when no host store is provided (most likely the intended behavior — matches the capitalized `<Knob>` reconciler path)
+- Or `Knob::on_mouse_drag` should null-check `StateStore*` before dispatching
+
+Either way the routing-parity sweep test passed because it doesn't exercise drag against a real `Knob` instance created through `__domAppend` in a no-store host context (the PR's behavioral test mentions "no host param bound" but presumably runs with the per-knob fallback store wired). The minimal repro is the **unchanged** `diagnostics/minimal-knob.jsx` fixture from earlier — just rebuild against `v0.378.0`, mount via `--pulp-bundle`, click and drag.
+
+Full crash log: `diagnostics/v0.378.0-knob-drag-crash.txt` (in the spike repo).
+
+Until this is fixed, the standalone-bundle drag path is **worse than v0.377** (crash vs. silently no-op).
+
 ### New (2026-06-08): standalone JSX bundles — Knob doesn't receive drag
 
 **Issue:** Knobs in a fixture-loaded bundle don't respond to mouse drag, but Knobs in DDIF's generated bundle (same converter, same pipeline) historically did. After the big sync wave on 2026-06-08 (pulp main +28 commits, pulp-view-embed +1, pulp-embed-juce +1), even DDIF's bundle may now be affected — we tested fixtures and saw zero drag response on bundles that previously worked.
