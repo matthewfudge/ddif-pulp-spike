@@ -47,7 +47,7 @@ const OUT_PATH = arg('--out', '/tmp/ddif-jsx/ddif-fx.jsx');
 // SVG overlap means slight double-render — acceptable for the interactivity
 // gain. WIDGETS_TRANSPARENT_OVERLAY=true keeps widgets invisible but still
 // clickable so the SVG carries the visuals and widgets only catch input.
-const WIDGETS_TRANSPARENT_OVERLAY = true;
+const WIDGETS_TRANSPARENT_OVERLAY = false;
 
 function classify(cls) {
     // Knobs / rotary sliders — value-bearing controls.
