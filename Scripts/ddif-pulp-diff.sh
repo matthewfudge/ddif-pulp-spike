@@ -13,7 +13,10 @@ REF=/tmp/ddif-ui-export/MainEditor.png
 DDIF_ROOT="/Volumes/Projects/Dream Date Designs/Dream Date Instrument Framework"
 PULP_DIR=/Volumes/Areas/Development/SDK/Pulp/pulp
 INSTALL=/Volumes/Areas/Development/SDK/Pulp/install
-RENDER=$DDIF_ROOT/Build/DreamDateFX-Pulp-Rel/pulp-embed-juce-build/pulp-view-embed-build/pulp-embed-bundle-render
+# The old per-bundle smoke binary (pulp-embed-bundle-render) was removed
+# upstream in the 2026-06-08 sync wave. pulp-screenshot is the supported
+# headless renderer — takes the bundle's ui.js directly as the script input.
+RENDER=$PULP_DIR/build-release/tools/screenshot/pulp-screenshot
 
 cd "$DDIF_ROOT"
 node Scripts/ddif-jsx-from-export.mjs >/dev/null
@@ -29,7 +32,8 @@ PULP_BUILD_DIR=$PULP_DIR/build-release $INSTALL/bin/pulp-cpp import-design \
 # in-DDIF embed). The captured JUCE reference is at 2× retina (2860×1532) —
 # downsize with Lanczos to 1000×536 to match Pulp's pixel grid.
 W=1000; H=536
-"$RENDER" /tmp/ddif-bundle $W $H $OUT_DIR/iter-current.png >/dev/null
+"$RENDER" --script /tmp/ddif-bundle/ui.js --output $OUT_DIR/iter-current.png \
+          --width $W --height $H --scale 1.0 >/dev/null 2>&1
 magick "$REF" -filter Lanczos -resize ${W}x${H}\! $OUT_DIR/iter-ref-1x.png
 REF=$OUT_DIR/iter-ref-1x.png
 CMP=$OUT_DIR/iter-current.png
