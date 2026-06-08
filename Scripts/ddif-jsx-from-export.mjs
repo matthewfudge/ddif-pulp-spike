@@ -320,7 +320,11 @@ function emit(node, indent, isRoot = false) {
 // path d= data is in the source SVG's coordinate space, and `viewBox` tells
 // Pulp how to scale the paths into the widget bounds.
 function emitSvg(p) {
-    const sty = `style={{position:'absolute', left:0, top:0, width:${TARGET_W}, height:${TARGET_H}}}`;
+    // pointerEvents:'none' so the chrome paints but doesn't block clicks from
+    // reaching the @pulp/react widgets layered on top. Verified empirically
+    // 2026-06-08: without this, every chrome path at full editor bounds
+    // catches the mouse and swallows knob drag.
+    const sty = `style={{position:'absolute', left:0, top:0, width:${TARGET_W}, height:${TARGET_H}, pointerEvents:'none'}}`;
     if (p.kind === 'rect') {
         // Rects' x/y/w/h are in widget-local space — scale them.
         const x = Math.round(p.x * SX), y = Math.round(p.y * SY);
