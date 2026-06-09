@@ -65,6 +65,34 @@ These default to `/Volumes/Areas/Development/SDK/Pulp/install` and `/Volumes/Are
 
 If 6/7/8 are all the same underlying bridge bug (silent-fail past some condition), that's the singular thing blocking pixel parity. Without solving it we're stuck at "macros + LFO frame + cream panel, no module slot frames, no MASTER strip, no 'No Preset' text" — the cliff falls right between the visually-important paths.
 
+### 2026-06-09 (late): Hover events don't fire in the embedded plugin context (open — needs Daniel)
+
+`onMouseEnter` / `onMouseLeave` props on every `<Knob>` in the converter output ARE wired correctly — `pulp-screenshot --runtime-trace` confirms:
+
+```
+"callback_count": 40,
+"callbacks": [{"key": "n11:mouseenter", ...}, {"key": "n11:mouseleave", ...}, ...]
+"native_registered": [{"key": "n11:hover", ...}, {"key": "n15:hover", ...}, ...]   ← 9 hover entries
+```
+
+JS callbacks installed + native `on_hover_enter` / `on_hover_leave` lambdas wired via `registerHover`. **But hovering over a knob in the live DDFX standalone (mounted via `PulpEmbedComponent`) does nothing** — no value label, no ring brighten, no saturn arc.
+
+Root cause: **`View::set_hovered` (the only call site that fires `on_hover_enter`) is only reached from `View::simulate_hover` (`core/view/src/view.cpp:1197`), which in turn is only called from `motion.cpp` for recorded-input replay.** Neither `pulp-view-embed` nor `pulp-embed-juce` has any mouse-move / hover routing code (`grep -rn 'mouse|hover'` returns zero hits). The embed ABI exposes `pulp_embed_simulate_param_drag` and `pulp_embed_simulate_text_input` but has **no equivalent for mouse move or hover dispatch**.
+
+So when DDIF mounts a Pulp bundle, drag works (the native Knob/Fader widgets ship their own `mouse_drag` handler that the JUCE component wires up directly), but the platform layer never tells Pulp where the mouse is between drags. `view->set_hovered` is never called → JS `onMouseEnter` never fires → all hover-conditional rendering (value label, ring brighten, saturn arc) stays inactive.
+
+**Workarounds (in order of cleanliness):**
+
+1. **`pulp-view-embed` adds a `pulp_embed_dispatch_mouse_move(view, x, y)` C ABI entry** that converts host coords to root-view coords and calls `simulate_hover`. Host adapters (`pulp-embed-juce`, future iPlug2/SDL adapters) override their own platform mouse-move and forward. Symmetric with the existing `pulp_embed_simulate_*` family.
+2. **`pulp-embed-juce` patches its `PulpEmbedComponent` to override `juce::Component::mouseMove`** and call `simulate_hover` directly on the Pulp root view (requires the C++ root pointer exposed, or a thin C ABI surface).
+3. We patch our fork to (2) ourselves. PR within `matthewfudge/pulp-embed-juce` for Daniel to cherry-pick.
+
+For the DDIF spike we'll either:
+- Wait for Daniel to land (1) on `pulp-view-embed`, OR
+- Cherry-pick our own (2) onto `matthewfudge/pulp-embed-juce` so testing can continue
+
+Either way, the converter's hover-conditional rendering (value label, saturn arc) is already in place and will light up the moment hover events actually fire — no converter change needed when the embed-side patch lands.
+
 ### 2026-06-09: Animated per-knob components — knob drag + indicator rotation + hover-reactive rings (RESOLVED)
 
 **Status:** Working end-to-end. Pulp `v0.382.1+` (`ad46bad4` in PR #3654) fixed the StateStore null-deref. The converter (`Scripts/ddif-jsx-from-export.mjs`) now emits per-knob React wrapper components — one `<K${index}>` per captured DDIF knob (8 macros + 1 SaturnRingKnob threshold) — that:

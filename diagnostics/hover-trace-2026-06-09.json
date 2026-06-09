@@ -1,0 +1,6491 @@
+{
+  "schema": "pulp-screenshot-runtime-trace-v1",
+  "reference_frame": {
+    "coordinate_space": "root-view-css-points",
+    "origin": "top-left",
+    "root_size": {
+      "width": 1000,
+      "height": 536
+    },
+    "document_body_id": "__root__",
+    "document_body_bounds": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0,
+      "top": 0,
+      "right": 0,
+      "bottom": 0,
+      "left": 0
+    }
+  },
+  "callback_count": 40,
+  "callbacks": [
+    {
+      "key": "n11:change",
+      "id": "n11",
+      "type": "change"
+    },
+    {
+      "key": "n11:mouseenter",
+      "id": "n11",
+      "type": "mouseenter"
+    },
+    {
+      "key": "n11:mouseleave",
+      "id": "n11",
+      "type": "mouseleave"
+    },
+    {
+      "key": "n120:click",
+      "id": "n120",
+      "type": "click"
+    },
+    {
+      "key": "n13:click",
+      "id": "n13",
+      "type": "click"
+    },
+    {
+      "key": "n15:change",
+      "id": "n15",
+      "type": "change"
+    },
+    {
+      "key": "n15:mouseenter",
+      "id": "n15",
+      "type": "mouseenter"
+    },
+    {
+      "key": "n15:mouseleave",
+      "id": "n15",
+      "type": "mouseleave"
+    },
+    {
+      "key": "n17:click",
+      "id": "n17",
+      "type": "click"
+    },
+    {
+      "key": "n19:change",
+      "id": "n19",
+      "type": "change"
+    },
+    {
+      "key": "n19:mouseenter",
+      "id": "n19",
+      "type": "mouseenter"
+    },
+    {
+      "key": "n19:mouseleave",
+      "id": "n19",
+      "type": "mouseleave"
+    },
+    {
+      "key": "n21:click",
+      "id": "n21",
+      "type": "click"
+    },
+    {
+      "key": "n23:change",
+      "id": "n23",
+      "type": "change"
+    },
+    {
+      "key": "n23:mouseenter",
+      "id": "n23",
+      "type": "mouseenter"
+    },
+    {
+      "key": "n23:mouseleave",
+      "id": "n23",
+      "type": "mouseleave"
+    },
+    {
+      "key": "n25:click",
+      "id": "n25",
+      "type": "click"
+    },
+    {
+      "key": "n27:change",
+      "id": "n27",
+      "type": "change"
+    },
+    {
+      "key": "n27:mouseenter",
+      "id": "n27",
+      "type": "mouseenter"
+    },
+    {
+      "key": "n27:mouseleave",
+      "id": "n27",
+      "type": "mouseleave"
+    },
+    {
+      "key": "n29:click",
+      "id": "n29",
+      "type": "click"
+    },
+    {
+      "key": "n31:change",
+      "id": "n31",
+      "type": "change"
+    },
+    {
+      "key": "n31:mouseenter",
+      "id": "n31",
+      "type": "mouseenter"
+    },
+    {
+      "key": "n31:mouseleave",
+      "id": "n31",
+      "type": "mouseleave"
+    },
+    {
+      "key": "n33:click",
+      "id": "n33",
+      "type": "click"
+    },
+    {
+      "key": "n35:change",
+      "id": "n35",
+      "type": "change"
+    },
+    {
+      "key": "n35:mouseenter",
+      "id": "n35",
+      "type": "mouseenter"
+    },
+    {
+      "key": "n35:mouseleave",
+      "id": "n35",
+      "type": "mouseleave"
+    },
+    {
+      "key": "n37:click",
+      "id": "n37",
+      "type": "click"
+    },
+    {
+      "key": "n39:change",
+      "id": "n39",
+      "type": "change"
+    },
+    {
+      "key": "n39:mouseenter",
+      "id": "n39",
+      "type": "mouseenter"
+    },
+    {
+      "key": "n39:mouseleave",
+      "id": "n39",
+      "type": "mouseleave"
+    },
+    {
+      "key": "n41:click",
+      "id": "n41",
+      "type": "click"
+    },
+    {
+      "key": "n74:click",
+      "id": "n74",
+      "type": "click"
+    },
+    {
+      "key": "n82:change",
+      "id": "n82",
+      "type": "change"
+    },
+    {
+      "key": "n82:mouseenter",
+      "id": "n82",
+      "type": "mouseenter"
+    },
+    {
+      "key": "n82:mouseleave",
+      "id": "n82",
+      "type": "mouseleave"
+    },
+    {
+      "key": "n96:click",
+      "id": "n96",
+      "type": "click"
+    },
+    {
+      "key": "n97:click",
+      "id": "n97",
+      "type": "click"
+    },
+    {
+      "key": "n99:click",
+      "id": "n99",
+      "type": "click"
+    }
+  ],
+  "native_registered_count": 22,
+  "native_registered": [
+    {
+      "key": "n11:hover",
+      "id": "n11",
+      "group": "hover"
+    },
+    {
+      "key": "n120:click",
+      "id": "n120",
+      "group": "click"
+    },
+    {
+      "key": "n13:click",
+      "id": "n13",
+      "group": "click"
+    },
+    {
+      "key": "n15:hover",
+      "id": "n15",
+      "group": "hover"
+    },
+    {
+      "key": "n17:click",
+      "id": "n17",
+      "group": "click"
+    },
+    {
+      "key": "n19:hover",
+      "id": "n19",
+      "group": "hover"
+    },
+    {
+      "key": "n21:click",
+      "id": "n21",
+      "group": "click"
+    },
+    {
+      "key": "n23:hover",
+      "id": "n23",
+      "group": "hover"
+    },
+    {
+      "key": "n25:click",
+      "id": "n25",
+      "group": "click"
+    },
+    {
+      "key": "n27:hover",
+      "id": "n27",
+      "group": "hover"
+    },
+    {
+      "key": "n29:click",
+      "id": "n29",
+      "group": "click"
+    },
+    {
+      "key": "n31:hover",
+      "id": "n31",
+      "group": "hover"
+    },
+    {
+      "key": "n33:click",
+      "id": "n33",
+      "group": "click"
+    },
+    {
+      "key": "n35:hover",
+      "id": "n35",
+      "group": "hover"
+    },
+    {
+      "key": "n37:click",
+      "id": "n37",
+      "group": "click"
+    },
+    {
+      "key": "n39:hover",
+      "id": "n39",
+      "group": "hover"
+    },
+    {
+      "key": "n41:click",
+      "id": "n41",
+      "group": "click"
+    },
+    {
+      "key": "n74:click",
+      "id": "n74",
+      "group": "click"
+    },
+    {
+      "key": "n82:hover",
+      "id": "n82",
+      "group": "hover"
+    },
+    {
+      "key": "n96:click",
+      "id": "n96",
+      "group": "click"
+    },
+    {
+      "key": "n97:click",
+      "id": "n97",
+      "group": "click"
+    },
+    {
+      "key": "n99:click",
+      "id": "n99",
+      "group": "click"
+    }
+  ],
+  "window_listeners": [],
+  "document_listeners": [],
+  "add_event_listener_log_count": 0,
+  "add_event_listener_log": [],
+  "dispatch_hits": null,
+  "native_element_count": 207,
+  "native_bounds_count": 207,
+  "native_bounds": [
+    {
+      "id": "__docRoot__",
+      "tag": "html",
+      "user_id": "",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {},
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "__root__",
+      "tag": "div",
+      "user_id": "",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {},
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "chrome0",
+      "tag": "view",
+      "user_id": "chrome0",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "chrome0"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "chrome1",
+      "tag": "view",
+      "user_id": "chrome1",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "chrome1"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n0",
+      "tag": "view",
+      "user_id": "n0",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n0"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n1",
+      "tag": "view",
+      "user_id": "n1",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n1"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n10",
+      "tag": "view",
+      "user_id": "n10",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n10"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 101,
+        "y": 340,
+        "width": 98,
+        "height": 146,
+        "top": 340,
+        "right": 199,
+        "bottom": 486,
+        "left": 101
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n11",
+      "tag": "knob",
+      "user_id": "n11",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n11"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 111,
+        "y": 370,
+        "width": 78,
+        "height": 78,
+        "top": 370,
+        "right": 189,
+        "bottom": 448,
+        "left": 111
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n11",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 111,
+            "y": 370,
+            "width": 78,
+            "height": 78,
+            "top": 370,
+            "right": 189,
+            "bottom": 448,
+            "left": 111
+          }
+        }
+      ]
+    },
+    {
+      "id": "n12",
+      "tag": "view",
+      "user_id": "n12",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n12"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 101,
+        "y": 462,
+        "width": 98,
+        "height": 16,
+        "top": 462,
+        "right": 199,
+        "bottom": 478,
+        "left": 101
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n120",
+      "tag": "button",
+      "user_id": "n120",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n120"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 909,
+        "y": 58,
+        "width": 26,
+        "height": 26,
+        "top": 58,
+        "right": 935,
+        "bottom": 84,
+        "left": 909
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n120",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 909,
+            "y": 58,
+            "width": 26,
+            "height": 26,
+            "top": 58,
+            "right": 935,
+            "bottom": 84,
+            "left": 909
+          }
+        }
+      ]
+    },
+    {
+      "id": "n13",
+      "tag": "button",
+      "user_id": "n13",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n13"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 101,
+        "y": 350,
+        "width": 25,
+        "height": 25,
+        "top": 350,
+        "right": 126,
+        "bottom": 375,
+        "left": 101
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n9",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 101,
+            "y": 340,
+            "width": 798,
+            "height": 146,
+            "top": 340,
+            "right": 899,
+            "bottom": 486,
+            "left": 101
+          }
+        },
+        {
+          "id": "n10",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 101,
+            "y": 340,
+            "width": 98,
+            "height": 146,
+            "top": 340,
+            "right": 199,
+            "bottom": 486,
+            "left": 101
+          }
+        },
+        {
+          "id": "n13",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 101,
+            "y": 350,
+            "width": 25,
+            "height": 25,
+            "top": 350,
+            "right": 126,
+            "bottom": 375,
+            "left": 101
+          }
+        }
+      ]
+    },
+    {
+      "id": "n14",
+      "tag": "view",
+      "user_id": "n14",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n14"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 201,
+        "y": 340,
+        "width": 98,
+        "height": 146,
+        "top": 340,
+        "right": 299,
+        "bottom": 486,
+        "left": 201
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n15",
+      "tag": "knob",
+      "user_id": "n15",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n15"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 211,
+        "y": 370,
+        "width": 78,
+        "height": 78,
+        "top": 370,
+        "right": 289,
+        "bottom": 448,
+        "left": 211
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n15",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 211,
+            "y": 370,
+            "width": 78,
+            "height": 78,
+            "top": 370,
+            "right": 289,
+            "bottom": 448,
+            "left": 211
+          }
+        }
+      ]
+    },
+    {
+      "id": "n16",
+      "tag": "view",
+      "user_id": "n16",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n16"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 201,
+        "y": 462,
+        "width": 98,
+        "height": 16,
+        "top": 462,
+        "right": 299,
+        "bottom": 478,
+        "left": 201
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n17",
+      "tag": "button",
+      "user_id": "n17",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n17"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 201,
+        "y": 350,
+        "width": 25,
+        "height": 25,
+        "top": 350,
+        "right": 226,
+        "bottom": 375,
+        "left": 201
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n9",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 101,
+            "y": 340,
+            "width": 798,
+            "height": 146,
+            "top": 340,
+            "right": 899,
+            "bottom": 486,
+            "left": 101
+          }
+        },
+        {
+          "id": "n14",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 201,
+            "y": 340,
+            "width": 98,
+            "height": 146,
+            "top": 340,
+            "right": 299,
+            "bottom": 486,
+            "left": 201
+          }
+        },
+        {
+          "id": "n17",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 201,
+            "y": 350,
+            "width": 25,
+            "height": 25,
+            "top": 350,
+            "right": 226,
+            "bottom": 375,
+            "left": 201
+          }
+        }
+      ]
+    },
+    {
+      "id": "n18",
+      "tag": "view",
+      "user_id": "n18",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n18"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 301,
+        "y": 340,
+        "width": 98,
+        "height": 146,
+        "top": 340,
+        "right": 399,
+        "bottom": 486,
+        "left": 301
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n19",
+      "tag": "knob",
+      "user_id": "n19",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n19"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 311,
+        "y": 370,
+        "width": 78,
+        "height": 78,
+        "top": 370,
+        "right": 389,
+        "bottom": 448,
+        "left": 311
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n19",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 311,
+            "y": 370,
+            "width": 78,
+            "height": 78,
+            "top": 370,
+            "right": 389,
+            "bottom": 448,
+            "left": 311
+          }
+        }
+      ]
+    },
+    {
+      "id": "n20",
+      "tag": "view",
+      "user_id": "n20",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n20"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 301,
+        "y": 462,
+        "width": 98,
+        "height": 16,
+        "top": 462,
+        "right": 399,
+        "bottom": 478,
+        "left": 301
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n21",
+      "tag": "button",
+      "user_id": "n21",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n21"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 301,
+        "y": 350,
+        "width": 25,
+        "height": 25,
+        "top": 350,
+        "right": 326,
+        "bottom": 375,
+        "left": 301
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n9",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 101,
+            "y": 340,
+            "width": 798,
+            "height": 146,
+            "top": 340,
+            "right": 899,
+            "bottom": 486,
+            "left": 101
+          }
+        },
+        {
+          "id": "n18",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 301,
+            "y": 340,
+            "width": 98,
+            "height": 146,
+            "top": 340,
+            "right": 399,
+            "bottom": 486,
+            "left": 301
+          }
+        },
+        {
+          "id": "n21",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 301,
+            "y": 350,
+            "width": 25,
+            "height": 25,
+            "top": 350,
+            "right": 326,
+            "bottom": 375,
+            "left": 301
+          }
+        }
+      ]
+    },
+    {
+      "id": "n22",
+      "tag": "view",
+      "user_id": "n22",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n22"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 401,
+        "y": 340,
+        "width": 98,
+        "height": 146,
+        "top": 340,
+        "right": 499,
+        "bottom": 486,
+        "left": 401
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n23",
+      "tag": "knob",
+      "user_id": "n23",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n23"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 411,
+        "y": 370,
+        "width": 78,
+        "height": 78,
+        "top": 370,
+        "right": 489,
+        "bottom": 448,
+        "left": 411
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n23",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 411,
+            "y": 370,
+            "width": 78,
+            "height": 78,
+            "top": 370,
+            "right": 489,
+            "bottom": 448,
+            "left": 411
+          }
+        }
+      ]
+    },
+    {
+      "id": "n24",
+      "tag": "view",
+      "user_id": "n24",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n24"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 401,
+        "y": 462,
+        "width": 98,
+        "height": 16,
+        "top": 462,
+        "right": 499,
+        "bottom": 478,
+        "left": 401
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n25",
+      "tag": "button",
+      "user_id": "n25",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n25"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 401,
+        "y": 350,
+        "width": 25,
+        "height": 25,
+        "top": 350,
+        "right": 426,
+        "bottom": 375,
+        "left": 401
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n9",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 101,
+            "y": 340,
+            "width": 798,
+            "height": 146,
+            "top": 340,
+            "right": 899,
+            "bottom": 486,
+            "left": 101
+          }
+        },
+        {
+          "id": "n22",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 401,
+            "y": 340,
+            "width": 98,
+            "height": 146,
+            "top": 340,
+            "right": 499,
+            "bottom": 486,
+            "left": 401
+          }
+        },
+        {
+          "id": "n25",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 401,
+            "y": 350,
+            "width": 25,
+            "height": 25,
+            "top": 350,
+            "right": 426,
+            "bottom": 375,
+            "left": 401
+          }
+        }
+      ]
+    },
+    {
+      "id": "n26",
+      "tag": "view",
+      "user_id": "n26",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n26"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 501,
+        "y": 340,
+        "width": 98,
+        "height": 146,
+        "top": 340,
+        "right": 599,
+        "bottom": 486,
+        "left": 501
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n27",
+      "tag": "knob",
+      "user_id": "n27",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n27"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 511,
+        "y": 370,
+        "width": 78,
+        "height": 78,
+        "top": 370,
+        "right": 589,
+        "bottom": 448,
+        "left": 511
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n27",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 511,
+            "y": 370,
+            "width": 78,
+            "height": 78,
+            "top": 370,
+            "right": 589,
+            "bottom": 448,
+            "left": 511
+          }
+        }
+      ]
+    },
+    {
+      "id": "n28",
+      "tag": "view",
+      "user_id": "n28",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n28"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 501,
+        "y": 462,
+        "width": 98,
+        "height": 16,
+        "top": 462,
+        "right": 599,
+        "bottom": 478,
+        "left": 501
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n29",
+      "tag": "button",
+      "user_id": "n29",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n29"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 501,
+        "y": 350,
+        "width": 25,
+        "height": 25,
+        "top": 350,
+        "right": 526,
+        "bottom": 375,
+        "left": 501
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n9",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 101,
+            "y": 340,
+            "width": 798,
+            "height": 146,
+            "top": 340,
+            "right": 899,
+            "bottom": 486,
+            "left": 101
+          }
+        },
+        {
+          "id": "n26",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 501,
+            "y": 340,
+            "width": 98,
+            "height": 146,
+            "top": 340,
+            "right": 599,
+            "bottom": 486,
+            "left": 501
+          }
+        },
+        {
+          "id": "n29",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 501,
+            "y": 350,
+            "width": 25,
+            "height": 25,
+            "top": 350,
+            "right": 526,
+            "bottom": 375,
+            "left": 501
+          }
+        }
+      ]
+    },
+    {
+      "id": "n30",
+      "tag": "view",
+      "user_id": "n30",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n30"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 601,
+        "y": 340,
+        "width": 98,
+        "height": 146,
+        "top": 340,
+        "right": 699,
+        "bottom": 486,
+        "left": 601
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n31",
+      "tag": "knob",
+      "user_id": "n31",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n31"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 611,
+        "y": 370,
+        "width": 78,
+        "height": 78,
+        "top": 370,
+        "right": 689,
+        "bottom": 448,
+        "left": 611
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n31",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 611,
+            "y": 370,
+            "width": 78,
+            "height": 78,
+            "top": 370,
+            "right": 689,
+            "bottom": 448,
+            "left": 611
+          }
+        }
+      ]
+    },
+    {
+      "id": "n32",
+      "tag": "view",
+      "user_id": "n32",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n32"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 601,
+        "y": 462,
+        "width": 98,
+        "height": 16,
+        "top": 462,
+        "right": 699,
+        "bottom": 478,
+        "left": 601
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n33",
+      "tag": "button",
+      "user_id": "n33",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n33"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 601,
+        "y": 350,
+        "width": 25,
+        "height": 25,
+        "top": 350,
+        "right": 626,
+        "bottom": 375,
+        "left": 601
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n9",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 101,
+            "y": 340,
+            "width": 798,
+            "height": 146,
+            "top": 340,
+            "right": 899,
+            "bottom": 486,
+            "left": 101
+          }
+        },
+        {
+          "id": "n30",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 601,
+            "y": 340,
+            "width": 98,
+            "height": 146,
+            "top": 340,
+            "right": 699,
+            "bottom": 486,
+            "left": 601
+          }
+        },
+        {
+          "id": "n33",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 601,
+            "y": 350,
+            "width": 25,
+            "height": 25,
+            "top": 350,
+            "right": 626,
+            "bottom": 375,
+            "left": 601
+          }
+        }
+      ]
+    },
+    {
+      "id": "n34",
+      "tag": "view",
+      "user_id": "n34",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n34"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 701,
+        "y": 340,
+        "width": 98,
+        "height": 146,
+        "top": 340,
+        "right": 799,
+        "bottom": 486,
+        "left": 701
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n35",
+      "tag": "knob",
+      "user_id": "n35",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n35"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 711,
+        "y": 370,
+        "width": 78,
+        "height": 78,
+        "top": 370,
+        "right": 789,
+        "bottom": 448,
+        "left": 711
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n35",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 711,
+            "y": 370,
+            "width": 78,
+            "height": 78,
+            "top": 370,
+            "right": 789,
+            "bottom": 448,
+            "left": 711
+          }
+        }
+      ]
+    },
+    {
+      "id": "n36",
+      "tag": "view",
+      "user_id": "n36",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n36"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 701,
+        "y": 462,
+        "width": 98,
+        "height": 16,
+        "top": 462,
+        "right": 799,
+        "bottom": 478,
+        "left": 701
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n37",
+      "tag": "button",
+      "user_id": "n37",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n37"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 701,
+        "y": 350,
+        "width": 25,
+        "height": 25,
+        "top": 350,
+        "right": 726,
+        "bottom": 375,
+        "left": 701
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n9",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 101,
+            "y": 340,
+            "width": 798,
+            "height": 146,
+            "top": 340,
+            "right": 899,
+            "bottom": 486,
+            "left": 101
+          }
+        },
+        {
+          "id": "n34",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 701,
+            "y": 340,
+            "width": 98,
+            "height": 146,
+            "top": 340,
+            "right": 799,
+            "bottom": 486,
+            "left": 701
+          }
+        },
+        {
+          "id": "n37",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 701,
+            "y": 350,
+            "width": 25,
+            "height": 25,
+            "top": 350,
+            "right": 726,
+            "bottom": 375,
+            "left": 701
+          }
+        }
+      ]
+    },
+    {
+      "id": "n38",
+      "tag": "view",
+      "user_id": "n38",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n38"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 801,
+        "y": 340,
+        "width": 98,
+        "height": 146,
+        "top": 340,
+        "right": 899,
+        "bottom": 486,
+        "left": 801
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n39",
+      "tag": "knob",
+      "user_id": "n39",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n39"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 814,
+        "y": 373,
+        "width": 72,
+        "height": 72,
+        "top": 373,
+        "right": 886,
+        "bottom": 445,
+        "left": 814
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n39",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 814,
+            "y": 373,
+            "width": 72,
+            "height": 72,
+            "top": 373,
+            "right": 886,
+            "bottom": 445,
+            "left": 814
+          }
+        }
+      ]
+    },
+    {
+      "id": "n40",
+      "tag": "view",
+      "user_id": "n40",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n40"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 801,
+        "y": 462,
+        "width": 98,
+        "height": 16,
+        "top": 462,
+        "right": 899,
+        "bottom": 478,
+        "left": 801
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n41",
+      "tag": "button",
+      "user_id": "n41",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n41"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 801,
+        "y": 350,
+        "width": 25,
+        "height": 25,
+        "top": 350,
+        "right": 826,
+        "bottom": 375,
+        "left": 801
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n9",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 101,
+            "y": 340,
+            "width": 798,
+            "height": 146,
+            "top": 340,
+            "right": 899,
+            "bottom": 486,
+            "left": 101
+          }
+        },
+        {
+          "id": "n38",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 801,
+            "y": 340,
+            "width": 98,
+            "height": 146,
+            "top": 340,
+            "right": 899,
+            "bottom": 486,
+            "left": 801
+          }
+        },
+        {
+          "id": "n41",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 801,
+            "y": 350,
+            "width": 25,
+            "height": 25,
+            "top": 350,
+            "right": 826,
+            "bottom": 375,
+            "left": 801
+          }
+        }
+      ]
+    },
+    {
+      "id": "n71",
+      "tag": "view",
+      "user_id": "n71",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n71"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 68,
+        "y": 118,
+        "width": 864,
+        "height": 222,
+        "top": 118,
+        "right": 932,
+        "bottom": 340,
+        "left": 68
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n72",
+      "tag": "view",
+      "user_id": "n72",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n72"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 68,
+        "y": 118,
+        "width": 108,
+        "height": 222,
+        "top": 118,
+        "right": 176,
+        "bottom": 340,
+        "left": 68
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n73",
+      "tag": "view",
+      "user_id": "n73",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n73"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 77,
+        "y": 156,
+        "width": 90,
+        "height": 67,
+        "top": 156,
+        "right": 167,
+        "bottom": 223,
+        "left": 77
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n74",
+      "tag": "button",
+      "user_id": "n74",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n74"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 77,
+        "y": 251,
+        "width": 90,
+        "height": 50,
+        "top": 251,
+        "right": 167,
+        "bottom": 301,
+        "left": 77
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n71",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 68,
+            "y": 118,
+            "width": 864,
+            "height": 222,
+            "top": 118,
+            "right": 932,
+            "bottom": 340,
+            "left": 68
+          }
+        },
+        {
+          "id": "n72",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 68,
+            "y": 118,
+            "width": 108,
+            "height": 222,
+            "top": 118,
+            "right": 176,
+            "bottom": 340,
+            "left": 68
+          }
+        },
+        {
+          "id": "n74",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 77,
+            "y": 251,
+            "width": 90,
+            "height": 50,
+            "top": 251,
+            "right": 167,
+            "bottom": 301,
+            "left": 77
+          }
+        }
+      ]
+    },
+    {
+      "id": "n75",
+      "tag": "view",
+      "user_id": "n75",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n75"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 176,
+        "y": 118,
+        "width": 108,
+        "height": 222,
+        "top": 118,
+        "right": 284,
+        "bottom": 340,
+        "left": 176
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n76",
+      "tag": "view",
+      "user_id": "n76",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n76"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 284,
+        "y": 118,
+        "width": 108,
+        "height": 222,
+        "top": 118,
+        "right": 392,
+        "bottom": 340,
+        "left": 284
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n77",
+      "tag": "view",
+      "user_id": "n77",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n77"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 392,
+        "y": 118,
+        "width": 108,
+        "height": 222,
+        "top": 118,
+        "right": 500,
+        "bottom": 340,
+        "left": 392
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n78",
+      "tag": "view",
+      "user_id": "n78",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n78"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 500,
+        "y": 118,
+        "width": 108,
+        "height": 222,
+        "top": 118,
+        "right": 608,
+        "bottom": 340,
+        "left": 500
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n79",
+      "tag": "view",
+      "user_id": "n79",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n79"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 608,
+        "y": 118,
+        "width": 108,
+        "height": 222,
+        "top": 118,
+        "right": 716,
+        "bottom": 340,
+        "left": 608
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n80",
+      "tag": "view",
+      "user_id": "n80",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n80"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 716,
+        "y": 118,
+        "width": 108,
+        "height": 222,
+        "top": 118,
+        "right": 824,
+        "bottom": 340,
+        "left": 716
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n81",
+      "tag": "view",
+      "user_id": "n81",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n81"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 824,
+        "y": 118,
+        "width": 108,
+        "height": 222,
+        "top": 118,
+        "right": 932,
+        "bottom": 340,
+        "left": 824
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n82",
+      "tag": "knob",
+      "user_id": "n82",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n82"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 857,
+        "y": 256,
+        "width": 42,
+        "height": 42,
+        "top": 256,
+        "right": 899,
+        "bottom": 298,
+        "left": 857
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n82",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 857,
+            "y": 256,
+            "width": 42,
+            "height": 42,
+            "top": 256,
+            "right": 899,
+            "bottom": 298,
+            "left": 857
+          }
+        }
+      ]
+    },
+    {
+      "id": "n9",
+      "tag": "view",
+      "user_id": "n9",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n9"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 101,
+        "y": 340,
+        "width": 798,
+        "height": 146,
+        "top": 340,
+        "right": 899,
+        "bottom": 486,
+        "left": 101
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n95",
+      "tag": "view",
+      "user_id": "n95",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n95"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 350,
+        "y": 59,
+        "width": 276,
+        "height": 24,
+        "top": 59,
+        "right": 626,
+        "bottom": 83,
+        "left": 350
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n96",
+      "tag": "button",
+      "user_id": "n96",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n96"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 356,
+        "y": 59,
+        "width": 24,
+        "height": 24,
+        "top": 59,
+        "right": 380,
+        "bottom": 83,
+        "left": 356
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n95",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 350,
+            "y": 59,
+            "width": 276,
+            "height": 24,
+            "top": 59,
+            "right": 626,
+            "bottom": 83,
+            "left": 350
+          }
+        },
+        {
+          "id": "n96",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 356,
+            "y": 59,
+            "width": 24,
+            "height": 24,
+            "top": 59,
+            "right": 380,
+            "bottom": 83,
+            "left": 356
+          }
+        }
+      ]
+    },
+    {
+      "id": "n97",
+      "tag": "button",
+      "user_id": "n97",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n97"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 380,
+        "y": 59,
+        "width": 24,
+        "height": 24,
+        "top": 59,
+        "right": 404,
+        "bottom": 83,
+        "left": 380
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n95",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 350,
+            "y": 59,
+            "width": 276,
+            "height": 24,
+            "top": 59,
+            "right": 626,
+            "bottom": 83,
+            "left": 350
+          }
+        },
+        {
+          "id": "n97",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 380,
+            "y": 59,
+            "width": 24,
+            "height": 24,
+            "top": 59,
+            "right": 404,
+            "bottom": 83,
+            "left": 380
+          }
+        }
+      ]
+    },
+    {
+      "id": "n98",
+      "tag": "view",
+      "user_id": "n98",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n98"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 410,
+        "y": 59,
+        "width": 180,
+        "height": 24,
+        "top": 59,
+        "right": 590,
+        "bottom": 83,
+        "left": 410
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "n99",
+      "tag": "button",
+      "user_id": "n99",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "n99"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 596,
+        "y": 59,
+        "width": 24,
+        "height": 24,
+        "top": 59,
+        "right": 620,
+        "bottom": 83,
+        "left": 596
+      },
+      "ancestor_chain": [
+        {
+          "id": "root",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n0",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n1",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 0,
+            "y": 0,
+            "width": 1000,
+            "height": 536,
+            "top": 0,
+            "right": 1000,
+            "bottom": 536,
+            "left": 0
+          }
+        },
+        {
+          "id": "n95",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 350,
+            "y": 59,
+            "width": 276,
+            "height": 24,
+            "top": 59,
+            "right": 626,
+            "bottom": 83,
+            "left": 350
+          }
+        },
+        {
+          "id": "n99",
+          "tag": "",
+          "bounds_source": "getLayoutAncestorRects",
+          "bounds": {
+            "x": 596,
+            "y": 59,
+            "width": 24,
+            "height": 24,
+            "top": 59,
+            "right": 620,
+            "bottom": 83,
+            "left": 596
+          }
+        }
+      ]
+    },
+    {
+      "id": "pr_1",
+      "tag": "svgrect",
+      "user_id": "pr_1",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_10",
+      "tag": "svgpath",
+      "user_id": "pr_10",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_10"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_11",
+      "tag": "svgpath",
+      "user_id": "pr_11",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_11"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_12",
+      "tag": "svgpath",
+      "user_id": "pr_12",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_12"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_13",
+      "tag": "svgpath",
+      "user_id": "pr_13",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_13"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_14",
+      "tag": "svgpath",
+      "user_id": "pr_14",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_14"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_15",
+      "tag": "svgpath",
+      "user_id": "pr_15",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_15"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_16",
+      "tag": "svgpath",
+      "user_id": "pr_16",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_16"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_17",
+      "tag": "svgpath",
+      "user_id": "pr_17",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_17"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_18",
+      "tag": "svgpath",
+      "user_id": "pr_18",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_18"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_19",
+      "tag": "svgpath",
+      "user_id": "pr_19",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_19"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1a",
+      "tag": "svgpath",
+      "user_id": "pr_1a",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1a"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1b",
+      "tag": "svgpath",
+      "user_id": "pr_1b",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1b"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1c",
+      "tag": "svgpath",
+      "user_id": "pr_1c",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1c"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1d",
+      "tag": "svgpath",
+      "user_id": "pr_1d",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1d"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1e",
+      "tag": "svgpath",
+      "user_id": "pr_1e",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1e"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1f",
+      "tag": "svgpath",
+      "user_id": "pr_1f",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1f"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1g",
+      "tag": "svgpath",
+      "user_id": "pr_1g",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1g"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1h",
+      "tag": "svgpath",
+      "user_id": "pr_1h",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1h"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1i",
+      "tag": "svgpath",
+      "user_id": "pr_1i",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1i"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1j",
+      "tag": "svgpath",
+      "user_id": "pr_1j",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1j"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1k",
+      "tag": "svgpath",
+      "user_id": "pr_1k",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1k"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1l",
+      "tag": "svgpath",
+      "user_id": "pr_1l",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1l"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1m",
+      "tag": "svgpath",
+      "user_id": "pr_1m",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1m"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1n",
+      "tag": "svgpath",
+      "user_id": "pr_1n",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1n"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1o",
+      "tag": "svgpath",
+      "user_id": "pr_1o",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1o"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1p",
+      "tag": "svgpath",
+      "user_id": "pr_1p",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1p"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1q",
+      "tag": "svgpath",
+      "user_id": "pr_1q",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1q"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1r",
+      "tag": "svgpath",
+      "user_id": "pr_1r",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1r"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1s",
+      "tag": "svgpath",
+      "user_id": "pr_1s",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1s"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1t",
+      "tag": "svgpath",
+      "user_id": "pr_1t",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1t"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1u",
+      "tag": "svgpath",
+      "user_id": "pr_1u",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1u"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1v",
+      "tag": "svgpath",
+      "user_id": "pr_1v",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1v"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1w",
+      "tag": "svgpath",
+      "user_id": "pr_1w",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1w"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1x",
+      "tag": "svgpath",
+      "user_id": "pr_1x",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1x"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1y",
+      "tag": "svgpath",
+      "user_id": "pr_1y",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1y"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_1z",
+      "tag": "svgpath",
+      "user_id": "pr_1z",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_1z"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2",
+      "tag": "svgpath",
+      "user_id": "pr_2",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_20",
+      "tag": "svgpath",
+      "user_id": "pr_20",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_20"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_21",
+      "tag": "svgpath",
+      "user_id": "pr_21",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_21"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_22",
+      "tag": "svgpath",
+      "user_id": "pr_22",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_22"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_23",
+      "tag": "svgpath",
+      "user_id": "pr_23",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_23"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_24",
+      "tag": "svgpath",
+      "user_id": "pr_24",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_24"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_25",
+      "tag": "svgpath",
+      "user_id": "pr_25",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_25"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_26",
+      "tag": "svgpath",
+      "user_id": "pr_26",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_26"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_27",
+      "tag": "svgpath",
+      "user_id": "pr_27",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_27"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_28",
+      "tag": "svgpath",
+      "user_id": "pr_28",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_28"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_29",
+      "tag": "svgpath",
+      "user_id": "pr_29",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_29"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2a",
+      "tag": "svgpath",
+      "user_id": "pr_2a",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2a"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2b",
+      "tag": "svgpath",
+      "user_id": "pr_2b",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2b"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2c",
+      "tag": "svgpath",
+      "user_id": "pr_2c",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2c"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2d",
+      "tag": "svgpath",
+      "user_id": "pr_2d",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2d"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2e",
+      "tag": "svgpath",
+      "user_id": "pr_2e",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2e"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2f",
+      "tag": "svgpath",
+      "user_id": "pr_2f",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2f"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2g",
+      "tag": "svgpath",
+      "user_id": "pr_2g",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2g"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2h",
+      "tag": "svgpath",
+      "user_id": "pr_2h",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2h"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2i",
+      "tag": "svgpath",
+      "user_id": "pr_2i",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2i"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2j",
+      "tag": "svgpath",
+      "user_id": "pr_2j",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2j"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2k",
+      "tag": "svgpath",
+      "user_id": "pr_2k",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2k"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2l",
+      "tag": "svgpath",
+      "user_id": "pr_2l",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2l"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2m",
+      "tag": "svgpath",
+      "user_id": "pr_2m",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2m"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2n",
+      "tag": "svgpath",
+      "user_id": "pr_2n",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2n"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2o",
+      "tag": "svgpath",
+      "user_id": "pr_2o",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2o"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2p",
+      "tag": "svgpath",
+      "user_id": "pr_2p",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2p"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2q",
+      "tag": "svgpath",
+      "user_id": "pr_2q",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2q"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2r",
+      "tag": "svgpath",
+      "user_id": "pr_2r",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2r"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2s",
+      "tag": "svgpath",
+      "user_id": "pr_2s",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2s"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2t",
+      "tag": "svgpath",
+      "user_id": "pr_2t",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2t"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2u",
+      "tag": "svgpath",
+      "user_id": "pr_2u",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2u"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2v",
+      "tag": "svgpath",
+      "user_id": "pr_2v",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2v"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2w",
+      "tag": "svgpath",
+      "user_id": "pr_2w",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2w"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2x",
+      "tag": "svgpath",
+      "user_id": "pr_2x",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2x"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2y",
+      "tag": "svgpath",
+      "user_id": "pr_2y",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2y"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_2z",
+      "tag": "svgpath",
+      "user_id": "pr_2z",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_2z"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3",
+      "tag": "svgpath",
+      "user_id": "pr_3",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_30",
+      "tag": "svgpath",
+      "user_id": "pr_30",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_30"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_31",
+      "tag": "svgpath",
+      "user_id": "pr_31",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_31"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_32",
+      "tag": "svgpath",
+      "user_id": "pr_32",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_32"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_33",
+      "tag": "svgpath",
+      "user_id": "pr_33",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_33"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_34",
+      "tag": "svgpath",
+      "user_id": "pr_34",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_34"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_35",
+      "tag": "svgpath",
+      "user_id": "pr_35",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_35"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_36",
+      "tag": "svgpath",
+      "user_id": "pr_36",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_36"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_37",
+      "tag": "svgpath",
+      "user_id": "pr_37",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_37"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_38",
+      "tag": "svgpath",
+      "user_id": "pr_38",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_38"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_39",
+      "tag": "svgpath",
+      "user_id": "pr_39",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_39"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3a",
+      "tag": "svgpath",
+      "user_id": "pr_3a",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3a"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3b",
+      "tag": "svgpath",
+      "user_id": "pr_3b",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3b"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3c",
+      "tag": "svgpath",
+      "user_id": "pr_3c",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3c"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3d",
+      "tag": "svgpath",
+      "user_id": "pr_3d",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3d"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3e",
+      "tag": "svgpath",
+      "user_id": "pr_3e",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3e"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3f",
+      "tag": "svgpath",
+      "user_id": "pr_3f",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3f"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3g",
+      "tag": "svgpath",
+      "user_id": "pr_3g",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3g"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3h",
+      "tag": "svgpath",
+      "user_id": "pr_3h",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3h"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3i",
+      "tag": "svgpath",
+      "user_id": "pr_3i",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3i"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3j",
+      "tag": "svgpath",
+      "user_id": "pr_3j",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3j"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3k",
+      "tag": "svgpath",
+      "user_id": "pr_3k",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3k"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3l",
+      "tag": "svgpath",
+      "user_id": "pr_3l",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3l"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3m",
+      "tag": "svgpath",
+      "user_id": "pr_3m",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3m"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3n",
+      "tag": "svgpath",
+      "user_id": "pr_3n",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3n"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3o",
+      "tag": "svgpath",
+      "user_id": "pr_3o",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3o"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3p",
+      "tag": "svgpath",
+      "user_id": "pr_3p",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3p"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3q",
+      "tag": "svgpath",
+      "user_id": "pr_3q",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3q"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3r",
+      "tag": "svgpath",
+      "user_id": "pr_3r",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3r"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3s",
+      "tag": "svgpath",
+      "user_id": "pr_3s",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3s"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3t",
+      "tag": "svgpath",
+      "user_id": "pr_3t",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3t"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3u",
+      "tag": "svgpath",
+      "user_id": "pr_3u",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3u"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3v",
+      "tag": "svgpath",
+      "user_id": "pr_3v",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3v"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3w",
+      "tag": "svgpath",
+      "user_id": "pr_3w",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3w"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3x",
+      "tag": "svgpath",
+      "user_id": "pr_3x",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3x"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3y",
+      "tag": "svgpath",
+      "user_id": "pr_3y",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3y"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_3z",
+      "tag": "svgpath",
+      "user_id": "pr_3z",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_3z"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_4",
+      "tag": "svgpath",
+      "user_id": "pr_4",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_4"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_40",
+      "tag": "svgpath",
+      "user_id": "pr_40",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_40"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_41",
+      "tag": "svgpath",
+      "user_id": "pr_41",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_41"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_42",
+      "tag": "svgpath",
+      "user_id": "pr_42",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_42"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_43",
+      "tag": "svgpath",
+      "user_id": "pr_43",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_43"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_44",
+      "tag": "svgpath",
+      "user_id": "pr_44",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_44"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_45",
+      "tag": "svgpath",
+      "user_id": "pr_45",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_45"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_5",
+      "tag": "svgpath",
+      "user_id": "pr_5",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_5"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_6",
+      "tag": "svgpath",
+      "user_id": "pr_6",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_6"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_7",
+      "tag": "svgpath",
+      "user_id": "pr_7",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_7"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_8",
+      "tag": "svgpath",
+      "user_id": "pr_8",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_8"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_9",
+      "tag": "svgpath",
+      "user_id": "pr_9",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_9"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_a",
+      "tag": "svgpath",
+      "user_id": "pr_a",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_a"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_b",
+      "tag": "svgpath",
+      "user_id": "pr_b",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_b"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_c",
+      "tag": "svgpath",
+      "user_id": "pr_c",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_c"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_d",
+      "tag": "svgpath",
+      "user_id": "pr_d",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_d"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_e",
+      "tag": "svgpath",
+      "user_id": "pr_e",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_e"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_f",
+      "tag": "svgpath",
+      "user_id": "pr_f",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_f"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_g",
+      "tag": "svgpath",
+      "user_id": "pr_g",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_g"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_h",
+      "tag": "svgpath",
+      "user_id": "pr_h",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_h"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_i",
+      "tag": "svgpath",
+      "user_id": "pr_i",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_i"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_j",
+      "tag": "svgpath",
+      "user_id": "pr_j",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_j"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_k",
+      "tag": "svgpath",
+      "user_id": "pr_k",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_k"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_l",
+      "tag": "svgpath",
+      "user_id": "pr_l",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_l"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_m",
+      "tag": "svgpath",
+      "user_id": "pr_m",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_m"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_n",
+      "tag": "svgpath",
+      "user_id": "pr_n",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_n"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_o",
+      "tag": "svgpath",
+      "user_id": "pr_o",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_o"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_p",
+      "tag": "svgpath",
+      "user_id": "pr_p",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_p"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_q",
+      "tag": "svgpath",
+      "user_id": "pr_q",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_q"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_r",
+      "tag": "svgpath",
+      "user_id": "pr_r",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_r"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_s",
+      "tag": "svgpath",
+      "user_id": "pr_s",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_s"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_t",
+      "tag": "svgpath",
+      "user_id": "pr_t",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_t"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_u",
+      "tag": "svgpath",
+      "user_id": "pr_u",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_u"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_v",
+      "tag": "svgpath",
+      "user_id": "pr_v",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_v"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_w",
+      "tag": "svgpath",
+      "user_id": "pr_w",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_w"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_x",
+      "tag": "svgpath",
+      "user_id": "pr_x",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_x"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_y",
+      "tag": "svgpath",
+      "user_id": "pr_y",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_y"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "pr_z",
+      "tag": "svgpath",
+      "user_id": "pr_z",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "pr_z"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    },
+    {
+      "id": "root",
+      "tag": "view",
+      "user_id": "root",
+      "class_name": "",
+      "text": "",
+      "native_created": true,
+      "attributes": {
+        "id": "root"
+      },
+      "bounds_source": "getLayoutRect",
+      "bounds": {
+        "x": 0,
+        "y": 0,
+        "width": 1000,
+        "height": 536,
+        "top": 0,
+        "right": 1000,
+        "bottom": 536,
+        "left": 0
+      },
+      "ancestor_chain": []
+    }
+  ]
+}

@@ -415,9 +415,11 @@ function emitAnimatedKnobComponent(node, pair) {
     // colour on hover — DDIF's SaturnRingKnob brightens the ring when the
     // mouse is over the knob; macros do the same via `getKnobColour()`.
     let ringJsx = '';
+    let ringRadius = 0;
     if (ring) {
         const ringColor = (ring.fill ?? RING_FILL).toLowerCase();
         const ringStrokeW = (ring._bbox.w < 50) ? 2 : 6;
+        ringRadius = (ring._bbox.w - ringStrokeW) / 2;
         const firstZ = ring.d.indexOf('Z');
         const ringD = firstZ >= 0 ? ring.d.slice(0, firstZ + 1) : ring.d;
         ringJsx =
@@ -426,11 +428,72 @@ function emitAnimatedKnobComponent(node, pair) {
             `style={{position:'absolute', left:0, top:0, width:${TARGET_W}, height:${TARGET_H}, ` +
             `pointerEvents:'none'}} />\n`;
     }
+    // Saturn-ring modulation-depth arc. Drawn from the value position around
+    // the ring by `modDepth × 270°` (full knob arc span). Mirrors DDIF's
+    // `SaturnRingKnob::drawSaturnRing()` / `MacroSlot::paintOverChildren()`
+    // visualization — sweeps from value → value+modDepth in the accent colour.
+    // Visible only on hover, and only when modDepth > kMinVisibleDepth.
+    //
+    // modDepth is currently hardcoded as a placeholder (0.3) so the arc
+    // renders visibly even from an editor capture with no modulation set.
+    // Real per-knob modDepth capture is a follow-up yssUI patch — Slider
+    // properties or a SaturnRingKnob getter, surfaced through UIExporter.
+    const arcRadius = (ring && ring._bbox)
+        ? (Math.min(ring._bbox.w, ring._bbox.h) - ((ring._bbox.w < 50) ? 2 : 6)) / 2
+        : 33;
+    const arcStrokeWidth = (ring && ring._bbox && ring._bbox.w < 50) ? 2 : 6;
+    const arcColour = '#7b6896';    // DDIF accent (control-accent purple)
+    const saturnArc =
+        `      {hover && Math.abs(modDepth) > 0.01 && (() => {\n` +
+        `        const baseAngle = (-135 + v * 270) * Math.PI / 180;\n` +
+        `        const endVal    = Math.max(0, Math.min(1, v + modDepth));\n` +
+        `        const endAngle  = (-135 + endVal * 270) * Math.PI / 180;\n` +
+        `        const r         = ${arcRadius};\n` +
+        `        const cx        = ${ringCx};\n` +
+        `        const cy        = ${ringCy};\n` +
+        `        const baseX = cx + r * Math.sin(baseAngle);\n` +
+        `        const baseY = cy - r * Math.cos(baseAngle);\n` +
+        `        const endX  = cx + r * Math.sin(endAngle);\n` +
+        `        const endY  = cy - r * Math.cos(endAngle);\n` +
+        `        const sweep = (endAngle - baseAngle) > 0 ? 1 : 0;\n` +
+        `        const large = Math.abs(endAngle - baseAngle) > Math.PI ? 1 : 0;\n` +
+        `        const d = \`M \${baseX.toFixed(2)},\${baseY.toFixed(2)} A \${r},\${r} 0 \${large},\${sweep} \${endX.toFixed(2)},\${endY.toFixed(2)}\`;\n` +
+        `        return (\n` +
+        `          <SvgPath d={d} viewBox={[${editor.width},${editor.height}]} ` +
+        `fill="none" stroke="${arcColour}" strokeWidth={${arcStrokeWidth}} ` +
+        `style={{position:'absolute', left:0, top:0, width:${TARGET_W}, height:${TARGET_H}, ` +
+        `pointerEvents:'none'}} />\n` +
+        `        );\n` +
+        `      })()}\n`;
+    // Hover value-readout label, positioned where the static slot label
+    // ("LFO", "---", "MASTER") sits in the captured chrome. The panel
+    // background colour (#fbf4e6) masks the underlying static label so the
+    // value overlays cleanly. Matches DDIF's SaturnRingKnob::paint behaviour
+    // — when isHovered_, the label text is replaced with the formatted value.
+    // Format defaults to "NN%" (DDIF's fallback when no valueFormatter is
+    // wired). Per-product value formatters are a future yssUI capture.
+    const labelX  = Math.max(0, kx - 10);
+    const labelY  = ky + kh + 14;  // sit ON the static slot label (y≈465 in DDIF)
+    const labelW  = kw + 20;
+    const labelH  = 14;
+    // Conditional render keyed on hover state. If onMouseEnter doesn't fire
+    // on the opacity:0 Knob (Pulp may skip hit-test for invisible widgets),
+    // we'll add a transparent <View> overlay that explicitly handles hover.
+    const valueOverlay =
+        `      {hover && (\n` +
+        `        <View style={{position:'absolute', left:${labelX}, top:${labelY}, ` +
+        `width:${labelW}, height:${labelH}, backgroundColor:'#fbf4e6', pointerEvents:'none'}}>\n` +
+        `          <Label text={\`\${Math.round(v * 100)}%\`} ` +
+        `style={{position:'absolute', left:0, top:0, width:${labelW}, height:${labelH}, ` +
+        `color:'#7b6896', textAlign:'center', fontSize:11, pointerEvents:'none'}} />\n` +
+        `        </View>\n` +
+        `      )}\n`;
     return (
         `function ${compName}() {\n` +
         `  const [v, setV] = useState(${captureV.toFixed(4)});\n` +
         `  const [hover, setHover] = useState(false);\n` +
         `  const angle = (v - ${captureV.toFixed(4)}) * 270;\n` +
+        `  const modDepth = 0.3;  // TODO: capture per-knob modDepth via UIExporter\n` +
         `  const handleChange = (e) => setV(typeof e === 'number' ? e : e?.value);\n` +
         `  return (\n` +
         `    <>\n` +
@@ -439,6 +502,8 @@ function emitAnimatedKnobComponent(node, pair) {
         `onMouseLeave={() => setHover(false)} ` +
         `style={{position:'absolute', left:${kx}, top:${ky}, width:${kw}, height:${kh}, opacity:0}} />\n` +
         ringJsx +
+        saturnArc +
+        valueOverlay +
         `      <SvgPath d="${tri.d}" viewBox={[${editor.width},${editor.height}]} ` +
         `fill="${fill}"${stroke} ` +
         `style={{position:'absolute', left:0, top:0, width:${TARGET_W}, height:${TARGET_H}, ` +
