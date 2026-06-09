@@ -65,7 +65,49 @@ These default to `/Volumes/Areas/Development/SDK/Pulp/install` and `/Volumes/Are
 
 If 6/7/8 are all the same underlying bridge bug (silent-fail past some condition), that's the singular thing blocking pixel parity. Without solving it we're stuck at "macros + LFO frame + cream panel, no module slot frames, no MASTER strip, no 'No Preset' text" — the cliff falls right between the visually-important paths.
 
-### New (2026-06-08, evening): v0.378.0 fix introduces NULL deref on knob drag
+### 2026-06-09: Animated per-knob components — knob drag + indicator rotation + hover-reactive rings (RESOLVED)
+
+**Status:** Working end-to-end. Pulp `v0.382.1+` (`ad46bad4` in PR #3654) fixed the StateStore null-deref. The converter (`Scripts/ddif-jsx-from-export.mjs`) now emits per-knob React wrapper components — one `<K${index}>` per captured DDIF knob (8 macros + 1 SaturnRingKnob threshold) — that:
+
+- Hoist an invisible `<Knob value={v} onChange={...}>` to the root so absolute coords are editor-global (a deep-tree emit puts the Knob in the wrong place — see the 2026-06-09 hoisting note in the commit message).
+- Rotate the indicator triangle via state-driven `transform:[{rotate: angle}]` on its `<SvgPath>`. The captured editor pose is recovered by computing each triangle's angle relative to the ring center, so the rendered triangle starts where it was at capture time with no snap-on-first-drag.
+- Render the ring as a hover-reactive stroked circle (NOT a filled annulus — JUCE's `SVGGraphicsContext` lowers `Graphics::drawEllipse(stroke=N)` to a compound `M…Z M…Z` annular fill; without `fill-rule="evenodd"` Pulp paints it as a solid disk with a visible inner edge). The converter collapses the compound path to a single outer subpath + `fill="none"` + `stroke=<captured colour>` + `strokeWidth` matching the LookAndFeel (6 for `DDDTheme` macros, 2 for `SaturnRingKnob`). On `onMouseEnter` the stroke brightens to `#bfb8aa` — same `isHovered` effect `SaturnRingKnob::getRingColour()` produces.
+
+Indicator/ring detection is data-driven from the captured SVG, so it generalises to any DDIF product. Triangles are disambiguated from text glyphs by point count (3 == triangle, more == glyph). Rings are detected by fill colour ∈ {#e8e1d5, #a19b92} AND compound annular shape (`Z M`).
+
+**Two emit-path bugs surfaced during this work, both worth Daniel's attention:**
+
+- **`<SvgPath fill="none">`** is dropped by Pulp's SvgPath default-fill logic — when no `fill=` attr is present, the widget paints solid black, NOT transparent. The converter now emits `fill="none"` explicitly. Worth confirming this is the intended default behaviour (`SvgPathProps` docstring says "Defaults to … transparent + no stroke = invisible").
+- **`fill-rule`** isn't on `SvgPathProps`. JUCE's stroke→annular-fill lowering pattern only renders correctly with `fill-rule="evenodd"`. Adding the prop would let any captured JUCE editor render its stroked ellipses without converter-side transformation. The converter currently does the transformation; surfacing `fill-rule` would let consumers ship the captured paths verbatim.
+
+### New (2026-06-09): "Saturn ring on hover" needs `modDepth` capture (yssUI patch)
+
+The hover-brighten effect works today. The actual saturn ring proper — the modulation-depth ARC that `SaturnRingKnob::drawSaturnRing()` paints from `value_` to `value_ + modDepth_` — needs the per-knob `modDepth_` captured by `UIExporter`. Currently `ComponentTree.json` includes positional bounds + class names but not the live `juce::Slider::Properties`. To wire the saturn-ring arc the export would need to walk each `juce::Slider` (or `SaturnRingKnob`) and pull `modDepth` out of the live state — that's a yssUI `UIExporter.h` patch on the experiment/pulp-embed branch.
+
+### Long-term goal — Pulp replaces yssUI for all YSS plugins
+
+The converter ↔ Pulp adapter chain established here is intended as the **production rendering path for every YSS-framework plugin** (DDIF, Glasis, Groei, Mallet, Taishogoto, DrumSeq, PolyArp, Dreamer, future products). Architecture sketch:
+
+```
+JUCE editor                  yssUI::UIExporter             Scripts/ddif-jsx-from-export.mjs            @pulp/react
+(live components)   ──────►  ComponentTree.json    ──────► ddif-fx.jsx                       ──────►  ui.js
+                             MainEditor.svg                 (animated knob components,                 (mounted via
+                             MainEditor.png                  hover rings, label glyphs, …)               PulpEmbedComponent
+                                                                                                         in the JUCE editor)
+```
+
+The converter is **product-agnostic** today — every detection rule is data-driven from the captured SVG (fill colours, bbox sizes, path-point counts, parent containment), nothing is product-name-keyed. Porting any YSS plugin to Pulp is then: `UIExporter::exportComponent(editor, dir)` → `node ddif-jsx-from-export.mjs` → `import-design --from jsx` → mount via `PulpEmbedComponent`. Same recipe.
+
+For Pulp to absorb the converter into the SDK proper, the highest-leverage changes are:
+
+1. **`SvgPath` `fill-rule` prop** (mentioned above) — eliminates the converter's compound-annular-fill detection + collapse step.
+2. **`fill="none"` semantics** — confirm or fix the doc-vs-runtime mismatch.
+3. **Widget paint hooks** — already covered by Daniel's q9 doc. Per-knob paint props (e.g. `indicatorPath`, `trackFill`) would let the converter ship custom DDIF-style knobs without per-knob React wrappers + state.
+4. **`modDepth` / generic knob extras in `pulp_embed_param_info`** — already an open thread; would let the saturn ring arc render natively.
+
+Everything else (text capture, transform array, change-event subscription, lowercase tag routing) Pulp already handles correctly as of `v0.382.1` / `pulp-view-embed v6` / pulp-embed-juce 2.1.
+
+### Earlier 2026-06-08, evening: v0.378.0 fix introduces NULL deref on knob drag — RESOLVED in v0.382.1 (#3654)
 
 Daniel landed PR [#3617](https://github.com/danielraffel/pulp/pull/3617) in `v0.378.0` to fix the lowercase-tag routing gap (see previous section — `<knob>` now routes to `createKnob` on `__domAppend` + `_ensureNative` + `host-config` lowercase default). The native `Knob` IS now being created — DDIF's render shows the cream rotary visual with tick indicator inside each knob body, where v0.377 and earlier showed an empty `<View>` container.
 

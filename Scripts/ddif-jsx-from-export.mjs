@@ -123,7 +123,9 @@ function extractSvgPrimitives(svgPath, viewW, viewH) {
         const nums = (d.match(/-?\d+\.?\d*/g) || []).map(Number);
         let xs = [], ys = [];
         for (let i = 0; i + 1 < nums.length; i += 2) { xs.push(nums[i]); ys.push(nums[i + 1]); }
-        const bbox = xs.length === 0 ? { w: 0, h: 0 } : {
+        const bbox = xs.length === 0 ? { x: 0, y: 0, w: 0, h: 0 } : {
+            x: Math.min(...xs),
+            y: Math.min(...ys),
             w: Math.max(...xs) - Math.min(...xs),
             h: Math.max(...ys) - Math.min(...ys),
         };
@@ -235,14 +237,223 @@ const rootIndex = manifest.components[0]?.index ?? 0;
 SX = TARGET_W / editor.width;
 SY = TARGET_H / editor.height;
 
+// ── Pair Knobs to their purple indicator triangles ─────────────────────
+// Each macro/threshold knob in DDIF has a small #7b6896 purple triangle
+// painted by JUCE's LookAndFeel as the value indicator. JUCE captures it
+// as a static SvgPath — when the user drags the Pulp Knob the indicator
+// doesn't follow. Pair each Knob to its triangle, strip it from the static
+// chrome, and re-emit it inside a per-knob React-state-driven wrapper so a
+// `transform: [{rotate: ...}]` reads off the Knob's onChange.
+const PURPLE_FILL = '#7b6896';     // macro indicator (juce::Slider + DDDTheme)
+const MED_BROWN_FILL = '#a19b92';  // threshold indicator (SaturnRingKnob)
+const INDICATOR_FILLS = new Set([PURPLE_FILL, MED_BROWN_FILL]);
+const TRIANGLE_MAX_PX = 80;        // editor coords; indicators are ~6-24px
+
+// Triangles drawn by DDIF's knob LookAndFeels are exact `Path::addTriangle`
+// shapes — three points + close = "M x,y L x,y L x,y Z". Text glyphs sit in
+// the same fill colour and bbox range but use many more curve points, so
+// numPts == 3 cleanly disambiguates indicator from label letter.
+function isIndicatorTriangle(p) {
+    if (p.kind !== 'path') return false;
+    if (!INDICATOR_FILLS.has((p.fill ?? '').toLowerCase())) return false;
+    if (p._bbox.w <= 0 || p._bbox.w > TRIANGLE_MAX_PX) return false;
+    if (p._bbox.h <= 0 || p._bbox.h > TRIANGLE_MAX_PX) return false;
+    const nums = (p.d.match(/-?\d+\.?\d*/g) || []);
+    return nums.length === 6;   // exactly 3 (x,y) pairs
+}
+
+// JUCE's macro-slot LookAndFeel paints the cream knob ring at the TOP of
+// the slot's parent View, then positions the juce::Slider child 30px below
+// it (so the slot's lower portion shows the value label). The Slider's
+// reported bounds are at the Slider's true rect, NOT the visual ring. If
+// we render the Pulp native Knob at the Slider's global bounds, it lands
+// 30px below the cream ring and the two visuals don't overlap. To make the
+// native Knob, the chrome ring, and the rotating triangle all align,
+// resolve the ring's actual bbox from the SVG chrome and render the Knob
+// there.
+const RING_FILL = '#e8e1d5';        // macro cream ring (DDDTheme rotary)
+const SATURN_RING_FILL = '#a19b92'; // threshold/saturn knob ring
+const RING_FILLS = new Set([RING_FILL, SATURN_RING_FILL]);
+function findRingFor(tri, prims) {
+    const triCx = tri._bbox.x + tri._bbox.w / 2;
+    const triCy = tri._bbox.y + tri._bbox.h / 2;
+    let best = null, bestArea = Infinity;
+    for (const p of prims) {
+        if (p.kind !== 'path' || !RING_FILLS.has((p.fill ?? '').toLowerCase())) continue;
+        const b = p._bbox;
+        if (b.w < 30 || b.h < 30) continue;             // too small to be a knob ring
+        if (b.w > 120 || b.h > 120) continue;            // too large — different art
+        if (triCx < b.x || triCx > b.x + b.w) continue; // triangle center must sit inside
+        if (triCy < b.y || triCy > b.y + b.h) continue;
+        const area = b.w * b.h;
+        if (area < bestArea) { bestArea = area; best = p; }
+    }
+    return best;
+}
+
+const reservedTriangles = new Set();   // triangles claimed by a Knob
+const reservedRings     = new Set();   // rings hoisted into K* (for hover)
+const knobToTriangle    = new Map();   // node.index → { tri, ring }
+{
+    const triangles = svgPrims.filter(isIndicatorTriangle);
+    for (const node of manifest.components) {
+        if (classify(node.class).kind !== 'Knob') continue;
+        const [nx, ny, nw, nh] = node.global ?? node.bounds;
+        const knobCx = nx + nw / 2;
+        const knobCy = ny + nh / 2;
+        const PAD = 8;
+        let best = null, bestDist = Infinity;
+        for (const tri of triangles) {
+            if (reservedTriangles.has(tri)) continue;
+            const triCx = tri._bbox.x + tri._bbox.w / 2;
+            const triCy = tri._bbox.y + tri._bbox.h / 2;
+            if (triCx < nx - PAD || triCx > nx + nw + PAD) continue;
+            if (triCy < ny - PAD || triCy > ny + nh + PAD) continue;
+            const dist = Math.hypot(triCx - knobCx, triCy - knobCy);
+            if (dist < bestDist) { bestDist = dist; best = tri; }
+        }
+        if (best) {
+            const ring = findRingFor(best, svgPrims);
+            knobToTriangle.set(node.index, { tri: best, ring });
+            reservedTriangles.add(best);
+            if (ring) reservedRings.add(ring);
+        }
+    }
+}
+
+// Strip reserved triangles + rings from the static chrome — both are
+// re-emitted inside their per-knob wrapper component (rings need to react
+// to hover state; triangles need to rotate on drag).
+const chromeSvgPrims = svgPrims.filter(p =>
+    !reservedTriangles.has(p) && !reservedRings.has(p));
+
+// DDIF's `DDDTheme::drawRotarySlider` paints the cream ring as a SINGLE
+// stroked circle:
+//   g.setColour(0xffe8e1d5);
+//   g.drawEllipse(cx-r, cy-r, 2r, 2r, /*strokeWidth*/ 6.0f);
+// JUCE's `SVGGraphicsContext` lowers `drawEllipse(stroke=N)` into a FILLED
+// annular path (two concentric sub-paths in a compound `M…Z M…Z`). Without
+// `fill-rule="evenodd"` (which Pulp's @pulp/react `<SvgPath>` doesn't yet
+// expose) the inner sub-path doesn't subtract, so Pulp paints a solid disk
+// with a visible inner-edge ring — the "double knob" the user reported.
+// Fix on the converter side: collapse each annular cream ring back into the
+// original stroked-only single ellipse — keep just the outer sub-path, set
+// fill="none", stroke=#e8e1d5, strokeWidth=6. Same color as JUCE intended.
+for (const p of chromeSvgPrims) {
+    if (p.kind !== 'path') continue;
+    const fill = (p.fill ?? '').toLowerCase();
+    if (!RING_FILLS.has(fill)) continue;
+    if (!/\bZ\s+M/.test(p.d)) continue;          // compound = annular
+    if (p._bbox.w < 30 || p._bbox.w > 120) continue;
+    if (p._bbox.h < 30 || p._bbox.h > 120) continue;
+    // Keep the outer sub-path only (up to and including the first Z).
+    const firstZ = p.d.indexOf('Z');
+    if (firstZ < 0) continue;
+    p.d = p.d.slice(0, firstZ + 1);
+    p.stroke = fill;             // same colour DDIF originally used for the stroke
+    p.fill = 'none';
+    // DDDTheme macros use strokeWidth=6; SaturnRingKnob declares
+    // `kStrokeWidth = 2.0f`. Match by ring size — small rings get the
+    // thinner stroke.
+    p.strokeWidth = (p._bbox.w < 50) ? 2 : 6;
+}
+
 // ── Emit ───────────────────────────────────────────────────────────────
 let out = '';
 out += `// AUTO-GENERATED by Scripts/ddif-jsx-from-export.mjs — do not edit by hand.\n`;
 out += `// Source: ${IN_DIR}/ComponentTree.json (${manifest.components.length} components)\n`;
 out += `// Editor logical size: ${editor.width}x${editor.height}\n\n`;
+out += `import { useState } from 'react';\n`;
 out += `import { View, Row, Col, Panel, Label, Button, TextEditor,\n`;
 out += `         Knob, Fader, Meter, Toggle, Canvas,\n`;
 out += `         SvgPath, SvgRect } from '@pulp/react';\n\n`;
+
+// Per-knob wrapper components — one <K${index}> per paired knob. Each owns
+// its own useState and rotates its SvgPath indicator with the knob value.
+// Emitted between imports and the main DDIF() default export.
+function emitAnimatedKnobComponent(node, pair) {
+    // Prefer the cream ring's bbox over the Slider's reported global bounds.
+    // JUCE paints the cream ring 30px above the Slider's rect in DDIF's
+    // macro-slot LookAndFeel; rendering the Pulp Knob at the ring position
+    // makes the native Knob, the static chrome ring, and the rotating
+    // triangle all align as the user expects.
+    const { tri, ring } = pair;
+    const ringBbox = ring?._bbox;
+    const sliderBounds = node.global ?? node.bounds;
+    const [bx, by, bw, bh] = ringBbox
+        ? [ringBbox.x, ringBbox.y, ringBbox.w, ringBbox.h]
+        : sliderBounds;
+    const kx = Math.round(bx * SX), ky = Math.round(by * SY);
+    const kw = Math.round(bw * SX), kh = Math.round(bh * SY);
+    // transform-origin in WIDGET (SvgPath) bounds coords. SvgPath spans
+    // full editor (TARGET_W × TARGET_H), so the knob center as a fraction
+    // of the full editor IS the transform origin we need.
+    const ringCx = bx + bw / 2;
+    const ringCy = by + bh / 2;
+    const originXPct = (ringCx / editor.width) * 100;
+    const originYPct = (ringCy / editor.height) * 100;
+    // Infer the editor's captured value for THIS knob from the triangle's
+    // angle relative to the ring center. Standard knob arc spans -135° (min,
+    // 7 o'clock) to +135° (max, 5 o'clock) clockwise from 12 o'clock-up.
+    // atan2(dx, -dy) puts 0° at 12 o'clock and increases clockwise.
+    const triCx = tri._bbox.x + tri._bbox.w / 2;
+    const triCy = tri._bbox.y + tri._bbox.h / 2;
+    const captureAngleDeg = Math.atan2(triCx - ringCx, -(triCy - ringCy)) * 180 / Math.PI;
+    const captureV = Math.max(0, Math.min(1, (captureAngleDeg + 135) / 270));
+    const id = `n${node.index}`;
+    const compName = `K${node.index}`;
+    const fill = tri.fill ?? PURPLE_FILL;
+    const stroke = tri.stroke && tri.stroke !== 'none' ? ` stroke="${tri.stroke}"` : '';
+    // Initial v = captureV so the triangle starts at its captured pose
+    // (rotation = 0). Drag CW → angle increases up to +135°, drag CCW →
+    // down to -135°, both relative to the captured rest position.
+    // Knob is opacity:0 — invisible but still receives mouse drag so the
+    // user only sees the DDIF SVG chrome + rotating purple triangle.
+    // Reconstruct the stroked-circle ring from the captured annular path
+    // (same conversion as the chrome pipeline does for un-hoisted rings).
+    // Carrying it inside the per-knob component lets us toggle its stroke
+    // colour on hover — DDIF's SaturnRingKnob brightens the ring when the
+    // mouse is over the knob; macros do the same via `getKnobColour()`.
+    let ringJsx = '';
+    if (ring) {
+        const ringColor = (ring.fill ?? RING_FILL).toLowerCase();
+        const ringStrokeW = (ring._bbox.w < 50) ? 2 : 6;
+        const firstZ = ring.d.indexOf('Z');
+        const ringD = firstZ >= 0 ? ring.d.slice(0, firstZ + 1) : ring.d;
+        ringJsx =
+            `      <SvgPath d="${ringD}" viewBox={[${editor.width},${editor.height}]} ` +
+            `fill="none" stroke={hover ? '#bfb8aa' : '${ringColor}'} strokeWidth={${ringStrokeW}} ` +
+            `style={{position:'absolute', left:0, top:0, width:${TARGET_W}, height:${TARGET_H}, ` +
+            `pointerEvents:'none'}} />\n`;
+    }
+    return (
+        `function ${compName}() {\n` +
+        `  const [v, setV] = useState(${captureV.toFixed(4)});\n` +
+        `  const [hover, setHover] = useState(false);\n` +
+        `  const angle = (v - ${captureV.toFixed(4)}) * 270;\n` +
+        `  const handleChange = (e) => setV(typeof e === 'number' ? e : e?.value);\n` +
+        `  return (\n` +
+        `    <>\n` +
+        `      <Knob id="${id}" value={v} onChange={handleChange} ` +
+        `onMouseEnter={() => setHover(true)} ` +
+        `onMouseLeave={() => setHover(false)} ` +
+        `style={{position:'absolute', left:${kx}, top:${ky}, width:${kw}, height:${kh}, opacity:0}} />\n` +
+        ringJsx +
+        `      <SvgPath d="${tri.d}" viewBox={[${editor.width},${editor.height}]} ` +
+        `fill="${fill}"${stroke} ` +
+        `style={{position:'absolute', left:0, top:0, width:${TARGET_W}, height:${TARGET_H}, ` +
+        `transform:[{rotate: \`\${angle}deg\`}], ` +
+        `transformOrigin: \`${originXPct.toFixed(2)}% ${originYPct.toFixed(2)}%\`, ` +
+        `pointerEvents:'none'}} />\n` +
+        `    </>\n` +
+        `  );\n` +
+        `}\n\n`
+    );
+}
+for (const [idx, pair] of knobToTriangle) {
+    out += emitAnimatedKnobComponent(byIndex.get(idx), pair);
+}
+
 
 function emit(node, indent, isRoot = false) {
     if (skip(node)) return '';
@@ -277,11 +488,18 @@ function emit(node, indent, isRoot = false) {
         .replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/[{}]/g, '');
     const text = escapeAttr(node.text);
 
-    if (c.kind === 'Knob' || c.kind === 'Fader' || c.kind === 'Meter') {
-        // Uncontrolled — no `value` prop. Pulp's widget owns drag state
-        // internally, so the knob moves freely on mouse drag. When q1 binding
-        // matches (id == APVTS ParameterID), DAW automation pushes values
-        // back through pulp_embed_param_changed instead.
+    if (c.kind === 'Knob') {
+        // Paired knobs (with a purple-triangle indicator) are emitted at the
+        // ROOT level via their per-knob <K${index}> wrapper component. Both
+        // the inner <Knob> AND the rotating <SvgPath> use editor-global
+        // coords; if we emitted the wrapper here (inside a deep parent View),
+        // the Knob's "absolute" left/top would be parent-relative, not
+        // editor-relative — landing it in the wrong place.
+        if (knobToTriangle.has(node.index)) return '';
+        const props = [`id="${id}"`, style];
+        return `${pad}<Knob ${props.join(' ')} />\n`;
+    }
+    if (c.kind === 'Fader' || c.kind === 'Meter') {
         const props = [`id="${id}"`, style];
         if (c.kind === 'Fader') props.push(`orientation="${c.orientation ?? 'horizontal'}"`);
         return `${pad}<${c.kind} ${props.join(' ')} />\n`;
@@ -342,8 +560,14 @@ function emitSvg(p) {
     // the viewBox. Pulp scales viewBox→widget bounds at paint, so the path
     // lands at the right place in the TARGET_W×TARGET_H viewport.
     const props = [`d="${p.d}"`, `viewBox={[${editor.width},${editor.height}]}`];
-    if (p.fill && p.fill !== 'none') props.push(`fill="${p.fill}"`);
-    if (p.stroke && p.stroke !== 'none') props.push(`stroke="${p.stroke}"`);
+    // Emit fill=none explicitly when set — Pulp's SvgPath defaults to a
+    // solid black fill when no fill attr is provided, NOT transparent.
+    if (p.fill === 'none') props.push(`fill="none"`);
+    else if (p.fill)        props.push(`fill="${p.fill}"`);
+    if (p.stroke && p.stroke !== 'none') {
+        props.push(`stroke="${p.stroke}"`);
+        if (p.strokeWidth)  props.push(`strokeWidth={${p.strokeWidth}}`);
+    }
     return `        <SvgPath ${props.join(' ')} ${sty} />\n`;
 }
 
@@ -370,13 +594,20 @@ const CHROME_BUCKET_SIZE = 100;
 out += `export default function DDIF() {\n`;
 out += `  return (\n`;
 out += `    <View id="root" style={{position:'absolute', left:0, top:0, width:${TARGET_W}, height:${TARGET_H}}}>\n`;
-for (let i = 0; i < svgPrims.length; i += CHROME_BUCKET_SIZE) {
-    const slice = svgPrims.slice(i, i + CHROME_BUCKET_SIZE);
+for (let i = 0; i < chromeSvgPrims.length; i += CHROME_BUCKET_SIZE) {
+    const slice = chromeSvgPrims.slice(i, i + CHROME_BUCKET_SIZE);
     out += `      <View id="chrome${i / CHROME_BUCKET_SIZE}" style={{position:'absolute', left:0, top:0, width:${TARGET_W}, height:${TARGET_H}, pointerEvents:'none'}}>\n`;
     for (const p of slice) out += emitSvg(p);
     out += `      </View>\n`;
 }
 out += emit(byIndex.get(rootIndex), '      ', /*isRoot*/ true);
+// Animated knobs are rendered at root level so their inner <Knob>'s absolute
+// coords are relative to the editor (not the deep parent View their original
+// node lives in). Each <K${index}> contains both the Knob and its rotating
+// SvgPath indicator — emitted on top of the static chrome and the deep tree.
+for (const idx of knobToTriangle.keys()) {
+    out += `      <K${idx} />\n`;
+}
 out += `    </View>\n`;
 out += `  );\n`;
 out += `}\n`;
