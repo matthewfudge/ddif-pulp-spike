@@ -81,17 +81,12 @@ Root cause: **`View::set_hovered` (the only call site that fires `on_hover_enter
 
 So when DDIF mounts a Pulp bundle, drag works (the native Knob/Fader widgets ship their own `mouse_drag` handler that the JUCE component wires up directly), but the platform layer never tells Pulp where the mouse is between drags. `view->set_hovered` is never called → JS `onMouseEnter` never fires → all hover-conditional rendering (value label, ring brighten, saturn arc) stays inactive.
 
-**Workarounds (in order of cleanliness):**
+**Fix shipped on forks for Daniel to review (2026-06-09):**
 
-1. **`pulp-view-embed` adds a `pulp_embed_dispatch_mouse_move(view, x, y)` C ABI entry** that converts host coords to root-view coords and calls `simulate_hover`. Host adapters (`pulp-embed-juce`, future iPlug2/SDL adapters) override their own platform mouse-move and forward. Symmetric with the existing `pulp_embed_simulate_*` family.
-2. **`pulp-embed-juce` patches its `PulpEmbedComponent` to override `juce::Component::mouseMove`** and call `simulate_hover` directly on the Pulp root view (requires the C++ root pointer exposed, or a thin C ABI surface).
-3. We patch our fork to (2) ourselves. PR within `matthewfudge/pulp-embed-juce` for Daniel to cherry-pick.
+- [`matthewfudge/pulp-view-embed#1`](https://github.com/matthewfudge/pulp-view-embed/pull/1) — adds `pulp_embed_dispatch_mouse_move(view, x, y)` + `pulp_embed_dispatch_mouse_exit(view)` to the C ABI. Both defer to `View::simulate_hover` on the bridge's root view. No ABI bump — additive only.
+- [`matthewfudge/pulp-embed-juce#2`](https://github.com/matthewfudge/pulp-embed-juce/pull/2) — overrides `juce::Component::mouseMove` / `mouseEnter` / `mouseExit` in `PulpEmbedComponent` and forwards to the new ABI entry points. `MouseEvent.position` is already in root-view coord space when the wrapping NSViewComponent fills the component, so no transform is needed.
 
-For the DDIF spike we'll either:
-- Wait for Daniel to land (1) on `pulp-view-embed`, OR
-- Cherry-pick our own (2) onto `matthewfudge/pulp-embed-juce` so testing can continue
-
-Either way, the converter's hover-conditional rendering (value label, saturn arc) is already in place and will light up the moment hover events actually fire — no converter change needed when the embed-side patch lands.
+With both PRs applied, hover events flow end-to-end. The converter's existing hover-conditional rendering (ring brightening, value overlay, saturn arc) lights up the moment the cursor enters a widget. **No converter change needed once Daniel either merges, cherry-picks, or proposes an alternative shape.**
 
 ### 2026-06-09: Animated per-knob components — knob drag + indicator rotation + hover-reactive rings (RESOLVED)
 
